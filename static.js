@@ -102,10 +102,10 @@ const ui = {
 };
 
 const scenarioIndex = [
-  {id:'S1',audience:{zh:'访客视角',en:'Visitor perspective'},title:{zh:'这张 AI 展签，你会打开吗？',en:'Would you open this AI label?'},descriptor:{zh:'一件真实藏品与一张拟议展签',en:'A real object and a proposed label'},image:'public/objects/image1.jpg',color:'#ff5438'},
-  {id:'S2',audience:{zh:'社区与遗产工作者',en:'Community & heritage practitioners'},title:{zh:'不同的声音，应该怎样呈现？',en:'How should different accounts be presented?'},descriptor:{zh:'一件暂缓展示的仪式用品',en:'A ceremonial object withheld from display'},image:null,visual:'“ ”',color:'#d9ff4f'},
-  {id:'S3',audience:{zh:'馆藏与数字化人员',en:'Collections & digital staff'},title:{zh:'AI 建议的标签，谁来审核？',en:'Who reviews AI-suggested tags?'},descriptor:{zh:'一个馆藏标注试运行',en:'A collection-tagging pilot'},image:'public/objects/image3.jpg',color:'#84a9ff'},
-  {id:'S4',audience:{zh:'访客视角',en:'Visitor perspective'},title:{zh:'有限预算，先改善什么？',en:'With a limited budget, what comes first?'},descriptor:{zh:'三种访客支持方向',en:'Three visitor-support directions'},image:null,visual:'A / B / C',color:'#f4b8dc'}
+  {id:'S1',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名博物馆参观者',en:'As a museum visitor'},title:{zh:'这张 AI 展签，你会打开吗？',en:'Would you open this AI label?'},descriptor:{zh:'一件真实藏品与一张拟议展签',en:'A real object and a proposed label'},image:'public/objects/image1.jpg',color:'#ff5438'},
+  {id:'S2',audience:{zh:'博物馆与社区合作人员',en:'Museum & community practitioner'},rolePrompt:{zh:'作为一名与社区合作的博物馆策展人员',en:'As a museum curator working with communities'},title:{zh:'不同的声音，应该怎样呈现？',en:'How should different accounts be presented?'},descriptor:{zh:'一件暂缓展示的仪式用品',en:'A ceremonial object withheld from display'},image:null,visual:'“ ”',color:'#d9ff4f'},
+  {id:'S3',audience:{zh:'馆藏与数字化人员',en:'Collections & digital staff'},rolePrompt:{zh:'作为一名馆藏或数字化工作人员',en:'As a collections or digitisation officer'},title:{zh:'AI 建议的标签，谁来审核？',en:'Who reviews AI-suggested tags?'},descriptor:{zh:'一个馆藏标注试运行',en:'A collection-tagging pilot'},image:'public/objects/image3.jpg',color:'#84a9ff'},
+  {id:'S4',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名地方历史展览参观者',en:'As a local-history exhibition visitor'},title:{zh:'有限预算，先改善什么？',en:'With a limited budget, what comes first?'},descriptor:{zh:'三种访客支持方向',en:'Three visitor-support directions'},image:null,visual:'A / B / C',color:'#f4b8dc'}
 ];
 
 const scenarios = {
@@ -202,7 +202,8 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.0';
+const PROBE_VERSION = 'web-1.1';
+const DATA_SCHEMA_VERSION = '1.1';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
 let phase = 'landing';
@@ -229,7 +230,7 @@ function renderScenarioGrid() {
   const copy = landingCopy[language];
   grid.innerHTML = scenarioIndex.map(s => `
     <article class="scenario-card" style="--accent:${s.color}">
-      <div class="card-topline"><span>${s.id}</span><span>${t(s.audience)}</span></div>
+      <div class="card-topline"><span>${s.id}</span><span>${t(s.rolePrompt)}</span></div>
       <div class="card-visual">${s.image ? `<img src="${s.image}" alt="">` : `<span class="visual-type" aria-hidden="true">${s.visual}</span>`}</div>
       <div class="card-content"><p>${t(s.descriptor)}</p><h3>${t(s.title)}</h3><span class="card-time">${copy.duration}</span>
         <button type="button" data-scenario="${s.id}" aria-label="${copy.open} ${s.id}">${copy.open}<span aria-hidden="true">→</span></button>
@@ -551,27 +552,92 @@ function validateAndGo(target) {
 
 function buildResponsePayload() {
   const s=scenarios[session.scenario];
+  const scenarioMeta=scenarioIndex.find(item=>item.id===session.scenario);
+  const comparisonOptions=[ui.changed,ui.clearer,ui.unchanged];
+  const initialOption=s.initialOptions[Number(session.initialChoice)];
+  const revisedOption=s.revisedOptions[Number(session.revisedChoice)];
+  const comparisonOption=comparisonOptions[Number(session.comparison)];
+  const bilingual=value=>({zh:value?.zh||'',en:value?.en||''});
+  const optionCode=value=>value===''?'':String.fromCharCode(65+Number(value));
+  const comparisonCodes=['changed_choice','same_choice_clearer_reason','no_change'];
   if (!session.submissionId) session.submissionId=makeSubmissionId();
+  const proposalMarks=session.proposalMarks.map((mark,index)=>({
+    proposalId:`${session.scenario}-P${index+1}`,
+    proposal:t(s.proposalCards[index].title),
+    proposalTitle:bilingual(s.proposalCards[index].title),
+    action:mark.action,
+    actionCode:mark.action,
+    actionText:bilingual(ui[mark.action]),
+    note:mark.note
+  }));
+  const initialAnswer={
+    code:optionCode(session.initialChoice),
+    storedIndex:session.initialChoice,
+    text:bilingual(initialOption)
+  };
+  const revisedAnswer={
+    code:optionCode(session.revisedChoice),
+    storedIndex:session.revisedChoice,
+    text:bilingual(revisedOption)
+  };
+  const comparisonAnswer={
+    code:comparisonCodes[Number(session.comparison)]||'',
+    storedIndex:session.comparison,
+    text:bilingual(comparisonOption)
+  };
+  const questionAnswerPairs=[
+    {questionId:'Q01',field:'initialChoice',required:true,prompt:bilingual(s.initialQuestion),answer:initialAnswer},
+    {questionId:'Q02',field:'initialConfidence',required:true,prompt:bilingual(ui.confidence),answer:session.initialConfidence},
+    {questionId:'Q03',field:'initialReason',required:true,prompt:bilingual(ui.reason),answer:session.initialReason},
+    {questionId:'Q04',field:'missingInfo',required:false,prompt:bilingual(ui.missing),answer:session.missingInfo},
+    {questionId:'Q05',field:'proposalMarks',required:true,prompt:bilingual(ui.proposalInstruction),answer:proposalMarks},
+    {questionId:'Q06',field:'addedContent',required:false,prompt:bilingual(ui.addMissing),answer:session.addedContent},
+    {questionId:'Q07',field:'stopCondition',required:true,prompt:bilingual(ui.stopPrompt),answer:session.stopCondition},
+    {questionId:'Q08',field:'scenarioReconfiguration',required:true,prompt:bilingual(s.task),answer:session.scenarioReconfiguration},
+    {questionId:'Q09',field:'revisedChoice',required:true,prompt:bilingual(s.revisedQuestion),answer:revisedAnswer},
+    {questionId:'Q10',field:'comparison',required:true,prompt:bilingual(ui.comparison),answer:comparisonAnswer},
+    {questionId:'Q11',field:'evidenceUsed',required:true,prompt:bilingual(ui.evidenceUsed),answer:session.evidenceUsed},
+    {questionId:'Q12',field:'transparentNotActionable',required:true,prompt:bilingual(ui.transparentNotActionable),answer:session.transparentNotActionable},
+    {questionId:'Q13',field:'finalComment',required:false,prompt:bilingual(ui.anythingElse),answer:session.finalComment},
+    {questionId:'Q14',field:'downstreamOutcome',required:true,prompt:bilingual(ui.downstreamQuestion),answer:session.downstreamOutcome},
+    {questionId:'Q15',field:'accountabilityPlan',required:true,prompt:bilingual(ui.accountabilityQuestion),answer:session.accountabilityPlan},
+    {questionId:'Q16',field:'maintenanceRisk',required:true,prompt:bilingual(ui.maintenanceQuestion),answer:session.maintenanceRisk},
+    {questionId:'Q17',field:'nonAIAlternative',required:true,prompt:bilingual(ui.nonAIQuestion),answer:session.nonAIAlternative}
+  ];
   return {
     studyId:STUDY_ID,
     probeVersion:PROBE_VERSION,
+    dataSchemaVersion:DATA_SCHEMA_VERSION,
+    responseGeneratedAt:new Date().toISOString(),
     submissionId:session.submissionId,
     participantId:session.participantId,
     scenario:session.scenario,
+    scenarioTitle:t(s.title),
+    participantRole:t(scenarioMeta.rolePrompt),
+    scenarioMetadata:{
+      scenarioId:session.scenario,
+      title:bilingual(s.title),
+      shortTitle:bilingual(s.shortTitle),
+      audience:bilingual(scenarioMeta.audience),
+      participantRole:bilingual(scenarioMeta.rolePrompt)
+    },
     language:session.language,
     startedAt:session.startedAt,
     completedAt:session.completedAt,
     consentConfirmed:Boolean(session.consentConfirmed),
     initialChoice:session.initialChoice,
+    initialChoiceCode:initialAnswer.code,
     initialConfidence:session.initialConfidence,
     initialReason:session.initialReason,
     missingInfo:session.missingInfo,
-    proposalMarks:session.proposalMarks.map((mark,index)=>({proposal:t(s.proposalCards[index].title),action:mark.action,note:mark.note})),
+    proposalMarks,
     addedContent:session.addedContent,
     stopCondition:session.stopCondition,
     scenarioReconfiguration:session.scenarioReconfiguration,
     revisedChoice:session.revisedChoice,
+    revisedChoiceCode:revisedAnswer.code,
     comparison:session.comparison,
+    comparisonCode:comparisonAnswer.code,
     evidenceUsed:session.evidenceUsed,
     transparentNotActionable:session.transparentNotActionable,
     finalComment:session.finalComment,
@@ -579,9 +645,16 @@ function buildResponsePayload() {
     accountabilityPlan:session.accountabilityPlan,
     maintenanceRisk:session.maintenanceRisk,
     nonAIAlternative:session.nonAIAlternative,
-    initialChoiceText:t(s.initialOptions[Number(session.initialChoice)]),
-    revisedChoiceText:t(s.revisedOptions[Number(session.revisedChoice)]),
-    comparisonText:t([ui.changed,ui.clearer,ui.unchanged][Number(session.comparison)])
+    initialChoiceText:t(initialOption),
+    initialChoiceTextZh:initialOption?.zh||'',
+    initialChoiceTextEn:initialOption?.en||'',
+    revisedChoiceText:t(revisedOption),
+    revisedChoiceTextZh:revisedOption?.zh||'',
+    revisedChoiceTextEn:revisedOption?.en||'',
+    comparisonText:t(comparisonOption),
+    comparisonTextZh:comparisonOption?.zh||'',
+    comparisonTextEn:comparisonOption?.en||'',
+    questionAnswerPairs
   };
 }
 
@@ -622,7 +695,9 @@ function downloadResponse(format) {
   let content,mime,extension;
   if (format==='json') { content=JSON.stringify(payload,null,2); mime='application/json'; extension='json'; }
   else {
-    const flat={...payload,proposalMarks:JSON.stringify(payload.proposalMarks)};
+    const flat=Object.fromEntries(Object.entries(payload).map(([key,value])=>[
+      key,value!==null&&typeof value==='object'?JSON.stringify(value):value
+    ]));
     const keys=Object.keys(flat); const quote=v=>`"${String(v??'').replaceAll('"','""')}"`;
     content='\uFEFF'+keys.map(quote).join(',')+'\n'+keys.map(k=>quote(flat[k])).join(','); mime='text/csv;charset=utf-8'; extension='csv';
   }
