@@ -2,7 +2,8 @@ const t = (value) => typeof value === 'string' ? value : value[language];
 
 const landingCopy = {
   zh: {
-    studyType:'研究参与网站', eyebrow:'文化遗产中的人工智能', titleA1:'AI 应该在', titleA2:'博物馆里', titleB1:'做什么，', titleB2:'停在哪里？',
+    studyType:'研究参与网站', eyebrow:'文化遗产中的人工智能', titleA1:'AI 在博物馆中', titleA2:'可能适合做什么，', titleB1:'又可能', titleB2:'不适合做什么？',
+    heroCredit:'《草莓小偷》纺织品，William Morris，1883 年',
     intro:'请选择研究者指定的一个情景。你会先独立判断，再查看一份近未来 AI 提案，并把它改成你能够接受的版本。',
     start:'选择研究情景', time:'约 16–20 分钟 · 无标准答案 · 可中途继续',
     guideTitle:'你将一步步完成什么？', guideIntro:'每一页只处理一个任务；你的回答会自动保存在当前设备。',
@@ -16,7 +17,8 @@ const landingCopy = {
     answerTitle:'没有标准答案', answerBody:'使用、限制、暂缓或拒绝 AI 都是有效回答。'
   },
   en: {
-    studyType:'Research participation website', eyebrow:'Artificial intelligence in cultural heritage', titleA1:'What should AI do ', titleA2:'in museums', titleB1:'— and where ', titleB2:'should it stop?',
+    studyType:'Research participation website', eyebrow:'Artificial intelligence in cultural heritage', titleA1:'Where might AI fit ', titleA2:'in museums', titleB1:'— and where might ', titleB2:'it not?',
+    heroCredit:'Strawberry Thief, William Morris, 1883',
     intro:'Choose the situation assigned by the researcher. You will make an independent judgement, reveal a near-future AI proposal, then reshape it into a version you could accept.',
     start:'Choose your situation', time:'About 16–20 minutes · No correct answer · Resume later',
     guideTitle:'What will you do, step by step?', guideIntro:'Each page has one task. Your answers are saved automatically on this device.',
@@ -41,11 +43,17 @@ const ui = {
   reflectionNext:{zh:'完成最后反思',en:'Complete the final reflection'}, finish:{zh:'完成并查看结果',en:'Finish and review'}, participant:{zh:'匿名参与者编号',en:'Anonymous participant ID'},
   saved:{zh:'已自动保存在当前设备',en:'Saved automatically on this device'}, step:{zh:'步骤',en:'Step'}, of:{zh:'共',en:'of'},
   pageTask:{zh:'本页任务',en:'Your task on this page'}, help:{zh:'需要帮助？',en:'Need help?'},
-  helpBody:{zh:'先按你的真实判断作答。你不需要熟悉 AI，也不需要猜研究者想听什么。标有 * 的题目必须完成。',en:'Answer from your own point of view. You do not need AI expertise or to guess what the researcher expects. Questions marked * are required.'},
+  helpBody:{zh:'先按你的真实判断作答。你不需要熟悉 AI，也不需要猜研究者想听什么。如果不愿回答某一页，可以在缺项提示出现后选择“跳过本页并继续”。',en:'Answer from your own point of view. You do not need AI expertise or to guess what the researcher expects. If you prefer not to answer a page, use “Skip this page and continue” after the missing-answer prompt appears.'},
   prototype:{zh:'填写期间，回答只保存在当前设备；只有在最后点击“提交匿名回答”后，才会发送到学校 OneDrive。',en:'While you work, answers stay on this device. They are sent to the University OneDrive only after you select “Submit anonymous response” at the end.'},
   noCorrect:{zh:'没有标准答案。使用、限制、暂缓或拒绝 AI，都是有价值的回答。',en:'There is no correct answer. Using, limiting, deferring or rejecting AI are all valuable responses.'},
-  consent:{zh:'我已阅读研究者提供的参与者信息说明，并已完成知情同意流程。',en:'I have read the participant information supplied by the researcher and completed the consent process.'},
-  consentNote:{zh:'本网页不能替代已批准的信息说明、同意书、隐私说明或录音许可。',en:'This webpage does not replace the approved information sheet, consent form, privacy notice or recording permission.'},
+  ethicsSummary:{zh:'参与前须知',en:'Before taking part'},
+  ethicsReference:{zh:'研究编号：ERGO II 114350',en:'Study reference: ERGO II 114350'},
+  ethicsPurpose:{zh:'研究目的：了解人们如何判断博物馆与文化遗产情境中可能的 AI 应用。本研究不会测试正在运行的 AI 系统。',en:'Purpose: to understand how people judge possible uses of AI in museum and cultural heritage settings. This study does not test a live AI system.'},
+  ethicsActivity:{zh:'参与内容：完成一个情景和一份暂定提案，约 16–20 分钟。没有标准答案，也不需要 AI 专业知识。',en:'What you will do: complete one situation and one provisional proposal in about 16–20 minutes. There are no correct answers, and no AI expertise is required.'},
+  ethicsChoice:{zh:'参与选择：参与完全自愿。你可以不回答任何问题，也可以随时停止。参与后两周内可按参与者信息说明申请撤回数据；数据匿名化并纳入分析后，可能无法再单独删除。',en:'Your choice: taking part is voluntary. You may leave any question unanswered or stop at any time. You may request data withdrawal within two weeks, as explained in the Participant Information Sheet; once data are anonymised and integrated into analysis, individual removal may no longer be possible.'},
+  ethicsData:{zh:'数据处理：网页使用研究生成的编号，不要求填写姓名。提交后，回答会进入学校批准的安全存储；个人数据不会上传到开放式 AI 系统进行分析。',en:'Data handling: the website uses a study-generated ID and does not ask for your name. After submission, responses go to University-approved secure storage; personal data will not be uploaded to open AI systems for analysis.'},
+  consent:{zh:'我确认已经阅读研究者提供的参与者信息说明，有机会提出问题，并已完成获批的知情同意流程。',en:'I confirm that I have read the Participant Information Sheet provided by the researcher, had an opportunity to ask questions, and completed the approved consent process.'},
+  consentNote:{zh:'以上仅为简要提示，不能替代获批的参与者信息说明、同意书、隐私说明或录音许可。',en:'This summary does not replace the approved Participant Information Sheet, consent form, privacy notice or recording permission.'},
   aiWhat:{zh:'这里的 AI 是什么？',en:'What does AI mean here?'},
   aiWhatBody:{zh:'能够从数据中识别模式、生成文字或图像、提出建议的计算系统。它可以写得很流畅，但不等于它知道事实、拥有许可或能够承担责任。',en:'Computational systems that identify patterns, generate text or images, or make suggestions. Fluent output does not mean the system knows the truth, has permission, or can take responsibility.'},
   aiCan:{zh:'博物馆可能用它做什么？',en:'What might museums use it for?'},
@@ -70,6 +78,8 @@ const ui = {
   maintenanceQuestion:{zh:'长期运行时，它最可能在哪一步出错、积压或变得难以维护？为什么？',en:'Over time, where is it most likely to fail, create a backlog or become difficult to maintain? Why?'},
   nonAIQuestion:{zh:'有没有不用 AI 也能解决这个问题的方法？在什么条件下，这种做法会更合适？',en:'Could this problem be addressed without AI? Under what conditions would that approach be more appropriate?'},
   required:{zh:'请完成本页中的必答项后再继续。',en:'Please complete the required items before continuing.'},
+  skipPage:{zh:'跳过本页并继续',en:'Skip this page and continue'},
+  skipNote:{zh:'你可以选择不回答；系统会把本页记录为已跳过。',en:'You may choose not to answer. This page will be recorded as skipped.'},
   markRequired:{zh:'请至少标记提案中的一个部分。',en:'Please mark at least one part of the proposal.'},
   consentRequired:{zh:'请先确认你已经完成知情同意流程。',en:'Please confirm that you have completed the consent process.'},
   initialChoiceRequired:{zh:'请选择一个初步判断。',en:'Choose an initial judgement.'}, confidenceRequired:{zh:'请选择信心程度。',en:'Choose a confidence level.'}, reasonRequired:{zh:'请说明选择的主要理由。',en:'Give the main reason for your choice.'},
@@ -202,13 +212,14 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.1';
-const DATA_SCHEMA_VERSION = '1.1';
+const PROBE_VERSION = 'web-1.2';
+const DATA_SCHEMA_VERSION = '1.2';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
 let phase = 'landing';
 let session = null;
 let validationMessage = '';
+let pendingSkipTarget = '';
 
 function makeParticipantId() {
   const id = crypto.randomUUID ? crypto.randomUUID().split('-')[0] : Math.random().toString(36).slice(2,10);
@@ -280,6 +291,7 @@ function startScenario(id) {
     addedContent:'', stopCondition:'', scenarioReconfiguration:'', revisedChoice:'', comparison:'',
     evidenceUsed:'', transparentNotActionable:'', finalComment:'',
     downstreamOutcome:'', accountabilityPlan:'', maintenanceRisk:'', nonAIAlternative:'',
+    skippedPages:[],
     submissionId:'', submissionStatus:'idle', submittedAt:'', submissionError:''
   };
   phase = 'briefing';
@@ -298,6 +310,7 @@ function resumeScenario(id) {
   ['downstreamOutcome','accountabilityPlan','maintenanceRisk','nonAIAlternative'].forEach(field => {
     if (typeof session[field] !== 'string') session[field] = '';
   });
+  if (!Array.isArray(session.skippedPages)) session.skippedPages = [];
   session.submissionId = typeof session.submissionId === 'string' ? session.submissionId : '';
   session.submittedAt = typeof session.submittedAt === 'string' ? session.submittedAt : '';
   session.submissionError = '';
@@ -316,7 +329,7 @@ function saveSession() {
 }
 
 function exitProbe() {
-  session = null; phase = 'landing'; validationMessage = '';
+  session = null; phase = 'landing'; validationMessage = ''; pendingSkipTarget = '';
   document.querySelector('#probe-root')?.remove(); document.querySelector('#app').hidden = false;
   renderScenarioGrid(); window.scrollTo({top:document.querySelector('#scenarios').offsetTop,behavior:'smooth'});
 }
@@ -342,7 +355,7 @@ function renderProbe() {
     </header>
     ${phase !== 'complete' ? progressMarkup() : ''}
     <main class="probe-main ${phase==='proposal'||phase==='reshape'?'wide':''}">
-      ${validationMessage ? `<div class="validation" role="alert">${validationMessage}</div>` : ''}
+      ${validationMessage ? `<div class="validation" role="alert"><p>${validationMessage}</p>${pendingSkipTarget?`<p>${t(ui.skipNote)}</p><button class="validation-skip" data-skip-next="${pendingSkipTarget}" type="button">${t(ui.skipPage)} →</button>`:''}</div>` : ''}
       ${renderPhase(s)}
       ${phase!=='complete'?`<details class="help-panel"><summary>${t(ui.help)}</summary><p>${t(ui.helpBody)}</p></details>`:''}
     </main>`;
@@ -373,6 +386,15 @@ function renderBriefing(s) {
       <article><span>01</span><h2>${t(ui.aiWhat)}</h2><p>${t(ui.aiWhatBody)}</p></article>
       <article><span>02</span><h2>${t(ui.aiCan)}</h2><p>${t(ui.aiCanBody)}</p></article>
       <article><span>03</span><h2>${t(ui.aiChoose)}</h2><p>${t(ui.aiChooseBody)}</p></article>
+    </section>
+    <section class="ethics-panel" aria-labelledby="ethics-summary-title">
+      <div class="ethics-panel-heading"><span>${t(ui.ethicsReference)}</span><h2 id="ethics-summary-title">${t(ui.ethicsSummary)}</h2></div>
+      <ul>
+        <li>${t(ui.ethicsPurpose)}</li>
+        <li>${t(ui.ethicsActivity)}</li>
+        <li>${t(ui.ethicsChoice)}</li>
+        <li>${t(ui.ethicsData)}</li>
+      </ul>
     </section>
     <section class="consent-panel">
       <label><input id="consent-complete" type="checkbox" ${session.consentConfirmed?'checked':''}><span>${t(ui.consent)}</span></label>
@@ -491,11 +513,12 @@ function escapeText(value='') { return String(value).replaceAll('&','&amp;').rep
 function goBack() {
   const index=phases.indexOf(phase);
   if (index<=0) return exitProbe();
-  phase=phases[index-1]; validationMessage=''; saveSession(); renderProbe(); window.scrollTo(0,0);
+  phase=phases[index-1]; validationMessage=''; pendingSkipTarget=''; saveSession(); renderProbe(); window.scrollTo(0,0);
 }
 
 function validateAndGo(target) {
   validationMessage='';
+  pendingSkipTarget='';
   if (phase==='briefing') {
     session.consentConfirmed=Boolean(document.querySelector('#consent-complete')?.checked);
     if (!session.consentConfirmed) { validationMessage=t(ui.consentRequired); saveSession(); return renderProbe(); }
@@ -510,14 +533,14 @@ function validateAndGo(target) {
     if (session.initialChoice==='') missing.push(t(ui.initialChoiceRequired));
     if (session.initialConfidence==='') missing.push(t(ui.confidenceRequired));
     if (!session.initialReason) missing.push(t(ui.reasonRequired));
-    if (missing.length) { validationMessage=missing.join(' '); saveSession(); return renderProbe(); }
+    if (missing.length) { validationMessage=missing.join(' '); pendingSkipTarget=target; saveSession(); return renderProbe(); }
   }
-  if (phase==='proposal' && !session.proposalMarks.some(m=>m.action)) { validationMessage=t(ui.markRequired); return renderProbe(); }
+  if (phase==='proposal' && !session.proposalMarks.some(m=>m.action)) { validationMessage=t(ui.markRequired); pendingSkipTarget=target; return renderProbe(); }
   if (phase==='reshape' && (!session.stopCondition.trim() || !session.scenarioReconfiguration.trim())) {
     const missing=[];
     if (!session.stopCondition.trim()) missing.push(t(ui.stopRequired));
     if (!session.scenarioReconfiguration.trim()) missing.push(t(ui.taskRequired));
-    validationMessage=missing.join(' '); saveSession(); return renderProbe();
+    validationMessage=missing.join(' '); pendingSkipTarget=target; saveSession(); return renderProbe();
   }
   if (phase==='final') {
     const form=new FormData(document.querySelector('#final-form'));
@@ -531,7 +554,7 @@ function validateAndGo(target) {
     if (session.comparison==='') missing.push(t(ui.comparisonRequired));
     if (!session.evidenceUsed) missing.push(t(ui.evidenceRequired));
     if (!session.transparentNotActionable) missing.push(t(ui.actionableRequired));
-    if (missing.length) { validationMessage=missing.join(' '); saveSession(); return renderProbe(); }
+    if (missing.length) { validationMessage=missing.join(' '); pendingSkipTarget=target; saveSession(); return renderProbe(); }
   }
   if (phase==='reflection') {
     const form=new FormData(document.querySelector('#reflection-form'));
@@ -544,10 +567,23 @@ function validateAndGo(target) {
     if (!session.accountabilityPlan) missing.push(t(ui.accountabilityRequired));
     if (!session.maintenanceRisk) missing.push(t(ui.maintenanceRequired));
     if (!session.nonAIAlternative) missing.push(t(ui.nonAIRequired));
-    if (missing.length) { validationMessage=missing.join(' '); saveSession(); return renderProbe(); }
+    if (missing.length) { validationMessage=missing.join(' '); pendingSkipTarget=target; saveSession(); return renderProbe(); }
     session.completedAt=new Date().toISOString();
   }
+  session.skippedPages = session.skippedPages.filter(item => item !== phase);
   phase=target; saveSession(); renderProbe(); window.scrollTo(0,0);
+}
+
+function skipAndGo(target) {
+  if (phase === 'briefing') return;
+  if (!session.skippedPages.includes(phase)) session.skippedPages.push(phase);
+  if (target === 'complete') session.completedAt = new Date().toISOString();
+  validationMessage = '';
+  pendingSkipTarget = '';
+  phase = target;
+  saveSession();
+  renderProbe();
+  window.scrollTo(0,0);
 }
 
 function buildResponsePayload() {
@@ -625,6 +661,7 @@ function buildResponsePayload() {
     startedAt:session.startedAt,
     completedAt:session.completedAt,
     consentConfirmed:Boolean(session.consentConfirmed),
+    skippedPages:[...session.skippedPages],
     initialChoice:session.initialChoice,
     initialChoiceCode:initialAnswer.code,
     initialConfidence:session.initialConfidence,
@@ -714,6 +751,7 @@ document.addEventListener('click', (event) => {
   if (event.target.closest('[data-exit]')) return exitProbe();
   if (event.target.closest('[data-back]')) return goBack();
   const next=event.target.closest('[data-next]'); if (next) return validateAndGo(next.dataset.next);
+  const skipNext=event.target.closest('[data-skip-next]'); if (skipNext) return skipAndGo(skipNext.dataset.skipNext);
   const mark=event.target.closest('[data-mark-index]'); if (mark) {
     const index=Number(mark.dataset.markIndex), action=mark.dataset.markAction;
     session.proposalMarks[index].action=session.proposalMarks[index].action===action?'':action; saveSession(); return renderProbe();
