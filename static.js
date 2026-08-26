@@ -46,14 +46,16 @@ const ui = {
   helpBody:{zh:'先按你的真实判断作答。你不需要熟悉 AI，也不需要猜研究者想听什么。如果不愿回答某一页，可以在缺项提示出现后选择“跳过本页并继续”。',en:'Answer from your own point of view. You do not need AI expertise or to guess what the researcher expects. If you prefer not to answer a page, use “Skip this page and continue” after the missing-answer prompt appears.'},
   prototype:{zh:'填写期间，回答只保存在当前设备；只有在最后点击“提交匿名回答”后，才会发送到学校 OneDrive。',en:'While you work, answers stay on this device. They are sent to the University OneDrive only after you select “Submit anonymous response” at the end.'},
   noCorrect:{zh:'没有标准答案。使用、限制、暂缓或拒绝 AI，都是有价值的回答。',en:'There is no correct answer. Using, limiting, deferring or rejecting AI are all valuable responses.'},
-  ethicsSummary:{zh:'参与前须知',en:'Before taking part'},
+  ethicsSummary:{zh:'参与者信息摘要',en:'Participant information summary'},
   ethicsReference:{zh:'研究编号：ERGO II 114350',en:'Study reference: ERGO II 114350'},
   ethicsPurpose:{zh:'研究目的：了解人们如何判断博物馆与文化遗产情境中可能的 AI 应用。本研究不会测试正在运行的 AI 系统。',en:'Purpose: to understand how people judge possible uses of AI in museum and cultural heritage settings. This study does not test a live AI system.'},
   ethicsActivity:{zh:'参与内容：完成一个情景和一份暂定提案，约 16–20 分钟。没有标准答案，也不需要 AI 专业知识。',en:'What you will do: complete one situation and one provisional proposal in about 16–20 minutes. There are no correct answers, and no AI expertise is required.'},
-  ethicsChoice:{zh:'参与选择：参与完全自愿。你可以不回答任何问题，也可以随时停止。参与后两周内可按参与者信息说明申请撤回数据；数据匿名化并纳入分析后，可能无法再单独删除。',en:'Your choice: taking part is voluntary. You may leave any question unanswered or stop at any time. You may request data withdrawal within two weeks, as explained in the Participant Information Sheet; once data are anonymised and integrated into analysis, individual removal may no longer be possible.'},
-  ethicsData:{zh:'数据处理：网页使用研究生成的编号，不要求填写姓名。提交后，回答会进入学校批准的安全存储；个人数据不会上传到开放式 AI 系统进行分析。',en:'Data handling: the website uses a study-generated ID and does not ask for your name. After submission, responses go to University-approved secure storage; personal data will not be uploaded to open AI systems for analysis.'},
-  consent:{zh:'我确认已经阅读研究者提供的参与者信息说明，有机会提出问题，并已完成获批的知情同意流程。',en:'I confirm that I have read the Participant Information Sheet provided by the researcher, had an opportunity to ask questions, and completed the approved consent process.'},
-  consentNote:{zh:'以上仅为简要提示，不能替代获批的参与者信息说明、同意书、隐私说明或录音许可。',en:'This summary does not replace the approved Participant Information Sheet, consent form, privacy notice or recording permission.'},
+  ethicsEligibility:{zh:'参与条件与可能影响：参与者须年满 18 岁。本研究风险较低，部分情景会涉及错误信息、来源不确定、文化简化或维护负担；参与者通常不会获得直接个人受益。',en:'Eligibility and possible effects: you must be aged 18 or over. This is a low-risk study, although some situations discuss misinformation, uncertain sources, cultural simplification or maintenance burden. There may be no direct personal benefit.'},
+  ethicsChoice:{zh:'参与选择：参与完全自愿。你可以不回答任何问题，也可以随时停止。参与后两周内，可按照研究邀请中提供的方式申请撤回数据；数据匿名化并纳入分析后，可能无法再单独删除。',en:'Your choice: taking part is voluntary. You may leave any question unanswered or stop at any time. You may request data withdrawal within two weeks using the instructions supplied with the study invitation; once data are anonymised and integrated into analysis, individual removal may no longer be possible.'},
+  ethicsData:{zh:'数据处理：网页使用研究生成的编号，不要求填写姓名。提交后，回答会进入学校批准的安全存储；匿名研究数据最多可保留十年，个人数据不会上传到开放式 AI 系统进行分析。',en:'Data handling: the website uses a study-generated ID and does not ask for your name. After submission, responses go to University-approved secure storage. Anonymised research data may be retained for up to ten years, and personal data will not be uploaded to open AI systems for analysis.'},
+  reviewSummary:{zh:'返回查看参与者信息摘要',en:'Review the participant information summary'},
+  consent:{zh:'我已经阅读上方的参与者信息摘要，理解参与完全自愿，并同意参加这项研究。',en:'I have read the participant information summary above, understand that taking part is voluntary, and agree to participate in this research.'},
+  consentNote:{zh:'如果有任何内容不清楚，请先使用研究邀请中提供的联系方式咨询研究者。任何可选录音、照片或录像都需要另行同意。',en:'If anything is unclear, contact the researcher using the details supplied with the study invitation before continuing. Any optional audio, photography or video recording requires separate consent.'},
   aiWhat:{zh:'这里的 AI 是什么？',en:'What does AI mean here?'},
   aiWhatBody:{zh:'能够从数据中识别模式、生成文字或图像、提出建议的计算系统。它可以写得很流畅，但不等于它知道事实、拥有许可或能够承担责任。',en:'Computational systems that identify patterns, generate text or images, or make suggestions. Fluent output does not mean the system knows the truth, has permission, or can take responsibility.'},
   aiCan:{zh:'博物馆可能用它做什么？',en:'What might museums use it for?'},
@@ -81,7 +83,7 @@ const ui = {
   skipPage:{zh:'跳过本页并继续',en:'Skip this page and continue'},
   skipNote:{zh:'你可以选择不回答；系统会把本页记录为已跳过。',en:'You may choose not to answer. This page will be recorded as skipped.'},
   markRequired:{zh:'请至少标记提案中的一个部分。',en:'Please mark at least one part of the proposal.'},
-  consentRequired:{zh:'请先确认你已经完成知情同意流程。',en:'Please confirm that you have completed the consent process.'},
+  consentRequired:{zh:'请先确认你已经阅读参与者信息摘要并同意参加研究。',en:'Please confirm that you have read the participant information summary and agree to take part.'},
   initialChoiceRequired:{zh:'请选择一个初步判断。',en:'Choose an initial judgement.'}, confidenceRequired:{zh:'请选择信心程度。',en:'Choose a confidence level.'}, reasonRequired:{zh:'请说明选择的主要理由。',en:'Give the main reason for your choice.'},
   stopRequired:{zh:'请说明 AI 必须在哪里停止或交给人处理。',en:'Explain where AI must stop or hand over to a person.'}, taskRequired:{zh:'请完成这个情景的重构任务。',en:'Complete the situation-specific reshaping task.'},
   revisedRequired:{zh:'请选择再次判断的结果。',en:'Choose your revised judgement.'}, comparisonRequired:{zh:'请选择你的想法是否发生变化。',en:'Indicate whether your thinking changed.'}, evidenceRequired:{zh:'请写出你实际使用的一项信息。',en:'Name one piece of information you actually used.'}, actionableRequired:{zh:'请回答“透明但不可操作”的问题。',en:'Answer the question about transparency without actionability.'},
@@ -212,7 +214,7 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.2';
+const PROBE_VERSION = 'web-1.3';
 const DATA_SCHEMA_VERSION = '1.2';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
@@ -387,16 +389,18 @@ function renderBriefing(s) {
       <article><span>02</span><h2>${t(ui.aiCan)}</h2><p>${t(ui.aiCanBody)}</p></article>
       <article><span>03</span><h2>${t(ui.aiChoose)}</h2><p>${t(ui.aiChooseBody)}</p></article>
     </section>
-    <section class="ethics-panel" aria-labelledby="ethics-summary-title">
+    <section class="ethics-panel" id="participant-information-summary" aria-labelledby="ethics-summary-title">
       <div class="ethics-panel-heading"><span>${t(ui.ethicsReference)}</span><h2 id="ethics-summary-title">${t(ui.ethicsSummary)}</h2></div>
       <ul>
         <li>${t(ui.ethicsPurpose)}</li>
         <li>${t(ui.ethicsActivity)}</li>
+        <li>${t(ui.ethicsEligibility)}</li>
         <li>${t(ui.ethicsChoice)}</li>
         <li>${t(ui.ethicsData)}</li>
       </ul>
     </section>
     <section class="consent-panel">
+      <a class="consent-summary-link" href="#participant-information-summary">↑ ${t(ui.reviewSummary)}</a>
       <label><input id="consent-complete" type="checkbox" ${session.consentConfirmed?'checked':''}><span>${t(ui.consent)}</span></label>
       <p>${t(ui.consentNote)}</p><p class="prototype-note">${t(ui.prototype)}</p>
     </section>

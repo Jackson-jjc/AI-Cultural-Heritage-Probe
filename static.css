@@ -143,6 +143,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .ethics-panel li { border-top:1px solid #bdbdbd; color:#343434; font-size:13px; line-height:1.62; padding:12px 0 0 24px; position:relative; }
 .ethics-panel li::before { color:var(--scenario-accent); content:'◆'; font-size:9px; left:0; position:absolute; top:16px; }
 .consent-panel { background:var(--ink); color:#fff; margin-top:18px; padding:24px; }
+.consent-summary-link { color:var(--scenario-accent); display:inline-block; font-size:11px; font-weight:700; margin:0 0 18px 33px; text-decoration:underline; text-underline-offset:3px; }
+.consent-summary-link:hover { color:#fff; }
 .consent-panel label { align-items:flex-start; cursor:pointer; display:flex; font-size:15px; gap:12px; line-height:1.55; }
 .consent-panel input { accent-color:var(--scenario-accent); flex:none; height:21px; margin-top:1px; width:21px; }
 .consent-panel p { color:#aaa; font-size:11px; line-height:1.55; margin:12px 0 0 33px; }
