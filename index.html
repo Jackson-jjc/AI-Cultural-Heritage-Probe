@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A bilingual, scenario-based speculative probe about AI in museums.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta property="og:title" content="AI in Cultural Heritage">
+  <meta property="og:description" content="What should AI do in museums — and where should it stop?">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:,">
+  <title>文化遗产中的 AI｜Speculative Probe</title>
+  <link rel="stylesheet" href="static.css">
+</head>
+<body>
+  <main id="app">
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="返回首页">
+        <span class="wordmark-mark">AI</span>
+        <span>Culture<br>Probe</span>
+      </a>
+      <div class="header-study"><span data-copy="studyType">研究参与网站</span><b>ERGO II 114350</b></div>
+      <div class="language-switch" aria-label="语言选择">
+        <button class="active" data-language="zh" type="button">中文</button>
+        <button data-language="en" type="button">EN</button>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-media">
+        <img src="public/objects/image1.jpg" alt="17 世纪英国刺绣荷包">
+        <div class="hero-image-shade"></div>
+        <p class="image-credit">Purse, early 17th century<br>The Met Open Access · 29.23.19</p>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-copy="eyebrow">文化遗产中的人工智能</p>
+        <h1><span class="hero-title-row"><span class="hero-title-part" data-copy="titleA1">AI 应该在</span><span class="hero-title-part" data-copy="titleA2">博物馆里</span></span><em class="hero-title-row"><span class="hero-title-part" data-copy="titleB1">做什么，</span><span class="hero-title-part" data-copy="titleB2">停在哪里？</span></em></h1>
+        <p class="hero-intro" data-copy="intro">请选择研究者指定的一个情景。你会先独立判断，再查看一份近未来 AI 提案，并把它改成你能够接受的版本。</p>
+        <div class="hero-actions">
+          <button class="primary-action" id="choose-scenario" type="button"><span data-copy="start">选择研究情景</span><span aria-hidden="true">↓</span></button>
+          <p class="time-note" data-copy="time">约 16–20 分钟 · 无标准答案 · 可中途继续</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-guide" aria-labelledby="guide-title">
+      <div class="guide-heading">
+        <p>HOW IT WORKS</p>
+        <h2 id="guide-title" data-copy="guideTitle">你将一步步完成什么？</h2>
+        <p data-copy="guideIntro">每一页只处理一个任务；你的回答会自动保存在当前设备。</p>
+      </div>
+      <ol class="guide-steps">
+        <li><span>1</span><div><h3 data-copy="guide1Title">进入情景</h3><p data-copy="guide1Body">阅读一件藏品、一个工作现场或一项访客需求。</p></div></li>
+        <li><span>2</span><div><h3 data-copy="guide2Title">先独立判断</h3><p data-copy="guide2Body">在看到提案前，记录你的第一反应和理由。</p></div></li>
+        <li><span>3</span><div><h3 data-copy="guide3Title">检查并重构</h3><p data-copy="guide3Body">保留、质疑或删除提案内容，并补上边界与责任。</p></div></li>
+        <li><span>4</span><div><h3 data-copy="guide4Title">再次判断与反思</h3><p data-copy="guide4Body">说明什么改变了，再思考实施后果、责任、维护和非 AI 方案。</p></div></li>
+      </ol>
+    </section>
+
+    <section class="resume-section" id="resume-section" hidden aria-live="polite">
+      <div><p class="section-label" data-copy="resumeLabel">已保存的进度</p><h2 data-copy="resumeTitle">继续上次未完成的情景</h2></div>
+      <div id="resume-list"></div>
+    </section>
+
+    <section class="scenario-index" id="scenarios">
+      <div class="section-heading">
+        <p class="section-number">01—04</p>
+        <div>
+          <h2 data-copy="scenariosTitle">选择你的研究情景</h2>
+          <p data-copy="scenariosIntro">如果研究者指定了编号，请只进入对应情景。每位参与者通常完成一个主要情景。</p>
+        </div>
+      </div>
+      <div class="scenario-grid" id="scenario-grid"></div>
+    </section>
+
+    <aside class="privacy-strip">
+      <div><b data-copy="saveTitle">自动保存</b><span data-copy="saveBody">填写内容只保存在当前浏览器，除非你在最后主动下载或上传。</span></div>
+      <div><b data-copy="answerTitle">没有标准答案</b><span data-copy="answerBody">使用、限制、暂缓或拒绝 AI 都是有效回答。</span></div>
+    </aside>
+
+    <footer class="site-footer"><span>University of Southampton research study</span><span>Speculative probe · 2026</span></footer>
+  </main>
+  <script src="submission-config.js"></script>
+  <script src="static.js"></script>
+</body>
+</html>
