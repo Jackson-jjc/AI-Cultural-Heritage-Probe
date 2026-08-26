@@ -204,7 +204,7 @@ const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
 const PROBE_VERSION = 'web-1.0';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
-let language = localStorage.getItem('probe-language') || 'zh';
+let language = localStorage.getItem('probe-language') || 'en';
 let phase = 'landing';
 let session = null;
 let validationMessage = '';
@@ -259,6 +259,9 @@ function setLanguage(next) {
   language = next;
   localStorage.setItem('probe-language', next);
   document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en';
+  document.title = next === 'zh' ? '文化遗产中的 AI｜思辨设计 Probe' : 'AI in Cultural Heritage | Speculative Probe';
+  document.querySelector('.wordmark')?.setAttribute('aria-label', next === 'zh' ? '返回首页' : 'Return to homepage');
+  document.querySelector('.site-header .language-switch')?.setAttribute('aria-label', next === 'zh' ? '语言选择' : 'Language selection');
   document.querySelectorAll('[data-language]').forEach(button => button.classList.toggle('active', button.dataset.language === next));
   document.querySelectorAll('[data-copy]').forEach(node => { node.textContent = landingCopy[next][node.dataset.copy]; });
   if (session) { session.language = next; saveSession(); renderProbe(); } else renderScenarioGrid();
@@ -658,6 +661,9 @@ document.addEventListener('input', (event) => {
 document.querySelectorAll('[data-copy]').forEach(node => { node.textContent=landingCopy[language][node.dataset.copy]; });
 document.querySelectorAll('[data-language]').forEach(button => button.classList.toggle('active',button.dataset.language===language));
 document.documentElement.lang=language==='zh'?'zh-CN':'en';
+document.title=language==='zh'?'文化遗产中的 AI｜思辨设计 Probe':'AI in Cultural Heritage | Speculative Probe';
+document.querySelector('.wordmark')?.setAttribute('aria-label',language==='zh'?'返回首页':'Return to homepage');
+document.querySelector('.site-header .language-switch')?.setAttribute('aria-label',language==='zh'?'语言选择':'Language selection');
 renderScenarioGrid();
 
 const directScenario=new URLSearchParams(location.search).get('scenario')?.toUpperCase();
