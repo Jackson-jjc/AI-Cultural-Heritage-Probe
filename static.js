@@ -131,16 +131,16 @@ const ui = {
 };
 
 const scenarioIndex = [
-  {id:'S1',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名博物馆参观者',en:'As a museum visitor'},title:{zh:'这张 AI 展签，你会打开吗？',en:'Would you open this AI label?'},descriptor:{zh:'一件真实藏品与一张拟议展签',en:'A real object and a proposed label'},image:'public/objects/image1.jpg',color:'#ff5438'},
-  {id:'S2',audience:{zh:'博物馆与社区合作人员',en:'Museum & community practitioner'},rolePrompt:{zh:'作为一名与社区合作的博物馆策展人员',en:'As a museum curator working with communities'},title:{zh:'不同的声音，应该怎样呈现？',en:'How should different accounts be presented?'},descriptor:{zh:'一件暂缓展示的仪式用品',en:'A ceremonial object withheld from display'},image:null,visual:'“ ”',color:'#d9ff4f'},
-  {id:'S3',audience:{zh:'馆藏与数字化人员',en:'Collections & digital staff'},rolePrompt:{zh:'作为一名馆藏或数字化工作人员',en:'As a collections or digitisation officer'},title:{zh:'AI 建议的标签，谁来审核？',en:'Who reviews AI-suggested tags?'},descriptor:{zh:'一个馆藏标注试运行',en:'A collection-tagging pilot'},image:'public/objects/image3.jpg',color:'#84a9ff'},
-  {id:'S4',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名地方历史展览参观者',en:'As a local-history exhibition visitor'},title:{zh:'有限预算，先改善什么？',en:'With a limited budget, what comes first?'},descriptor:{zh:'三种访客支持方向',en:'Three visitor-support directions'},image:null,visual:'A / B / C',color:'#f4b8dc'}
+  {id:'S1',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名博物馆参观者',en:'As a museum visitor'},title:{zh:'一件真实藏品的 AI 简明展签',en:'An AI plain-language label for a real object'},descriptor:{zh:'真实藏品、原始记录与拟议 AI 展签',en:'Real object, collection record and proposed AI label'},image:'public/objects/image1.jpg',color:'#ff5438'},
+  {id:'S2',audience:{zh:'博物馆与社区合作人员',en:'Museum & community practitioner'},rolePrompt:{zh:'作为一名与社区合作的博物馆策展人员',en:'As a museum curator working with communities'},title:{zh:'一件仪式用品的多声部展示页',en:'A multi-voice display page for a ceremonial object'},descriptor:{zh:'许可、社区说法与个人记忆',en:'Permission, community wording and personal memory'},image:null,visual:'“ ”',color:'#d9ff4f'},
+  {id:'S3',audience:{zh:'馆藏与数字化人员',en:'Collections & digital staff'},rolePrompt:{zh:'作为一名馆藏或数字化工作人员',en:'As a collections or digitisation officer'},title:{zh:'一次 AI 馆藏标签审核试运行',en:'An AI collection-tag review pilot'},descriptor:{zh:'纺织品图像、标签建议与人工审核',en:'Textile images, tag suggestions and human review'},image:'public/objects/image3.jpg',color:'#84a9ff'},
+  {id:'S4',audience:{zh:'访客',en:'Visitor'},rolePrompt:{zh:'作为一名地方历史展览参观者',en:'As a local-history exhibition visitor'},title:{zh:'一个小型展览的访客支持选择',en:'Visitor support choices in a small exhibition'},descriptor:{zh:'翻译、简明文字与路线支持',en:'Translation, plain text and route support'},image:null,visual:'A / B / C',color:'#f4b8dc'}
 ];
 
 const scenarios = {
   S1: {
     shortTitle:{zh:'AI 简明展签',en:'AI plain-language label'}, accent:'#ff5438', visual:'object',
-    title:{zh:'你会使用这张文物的 AI 展签吗？',en:'Would you use this object’s AI label?'},
+    title:{zh:'一件真实藏品的 AI 简明展签',en:'An AI plain-language label for a real object'},
     deck:{zh:'你会看到一件真实藏品、一段原始馆藏说明，以及一张研究构造的 AI 简明展签。请判断哪些内容有帮助，哪些内容还需要来源、解释或人工审核。',en:'You will see a real object, an original collection description and a research-created AI plain-language label. Decide what is useful, what still needs sources, explanation or human checking.'},
     objectTitle:{zh:'荷包｜英国｜17 世纪早期',en:'Purse | British | early 17th century'},
     objectMeta:{zh:'丝和金属线绣于帆布｜7.6 × 6.7 cm｜The Met 29.23.19',en:'Silk and metal thread on canvas | 7.6 × 6.7 cm | The Met 29.23.19'},
@@ -167,7 +167,7 @@ const scenarios = {
   },
   S2: {
     shortTitle:{zh:'多声部与许可',en:'Multiple voices and permission'}, accent:'#d9ff4f', visual:'withheld',
-    title:{zh:'不同的声音应该怎样呈现？',en:'How should different accounts be presented?'},
+    title:{zh:'一件仪式用品的多声部展示页',en:'A multi-voice display page for a ceremonial object'},
     deck:{zh:'你需要决定：当馆藏记录、专家研究、社区说法和个人记忆不一致时，AI 只能整理材料，还是也可以改写和综合？',en:'You need to decide what AI may do when a collection record, specialist research, community wording and personal memory do not fully agree.'},
     situation:{zh:'你正在帮助一家博物馆审核一件仪式用品的数字展示页。关于这件藏品，不同材料说法不完全一致：馆藏记录有一个名称和流转记录；专家研究提出另一种解释；相关社区成员可能使用不同名称；一位讲述者还提供了个人记忆。有些知识可能不能公开，也不一定可以交给机器改写。博物馆正在确认展示许可，所以这里暂不显示图片。',en:'You are helping a museum review a digital page for a ceremonial object. Different materials do not fully agree: the collection record gives one name and transfer history; specialist research offers another interpretation; related community members may use different names; and one contributor has shared a personal memory. Some knowledge may not be public, and may not be suitable for machine rewriting. The museum is still checking display permission, so the image is not shown here.'},
     institutionHeading:{zh:'博物馆正在考虑的问题',en:'The museum question'},
@@ -191,7 +191,7 @@ const scenarios = {
   },
   S3: {
     shortTitle:{zh:'馆藏标签审核',en:'Collection tag review'}, accent:'#84a9ff', visual:'queue',
-    title:{zh:'AI 建议的馆藏标签，谁来审核？',en:'Who should review AI-suggested collection tags?'},
+    title:{zh:'一次 AI 馆藏标签审核试运行',en:'An AI collection-tag review pilot'},
     deck:{zh:'你需要决定：AI 可以为馆藏记录建议哪些标签？哪些标签必须人工逐件检查？如果积压或错误出现，谁负责？',en:'You need to decide which collection tags AI may suggest, which must be checked item by item, and who is responsible if errors or backlogs appear.'},
     situation:{zh:'你在一家中型博物馆的馆藏或数字化团队工作。博物馆约有 30,000 张纺织品图像，很多记录还不完整。人工标注很慢，所以团队考虑让 AI 建议标签，例如材料、颜色、图案、年代、地区或相似藏品。但如果错误的地区、身份或文化标签被公开，可能会长期影响公众检索和理解。团队每周只有半天时间审核 AI 建议。',en:'You work in the collections or digitisation team of a medium-sized museum. It has about 30,000 textile images, many with incomplete records. Manual tagging is slow, so the team is considering AI-suggested tags, such as material, colour, motif, date, region or similar objects. But if incorrect regional, identity or cultural labels become public, they may shape public search and interpretation for years. The team has only half a day each week to review AI suggestions.'},
     institutionHeading:{zh:'博物馆正在考虑的问题',en:'The museum question'},
@@ -215,7 +215,7 @@ const scenarios = {
   },
   S4: {
     shortTitle:{zh:'访客支持方案',en:'Visitor support options'}, accent:'#f4b8dc', visual:'route',
-    title:{zh:'博物馆应该怎样支持这些访客？',en:'How should the museum support these visitors?'},
+    title:{zh:'一个小型展览的访客支持选择',en:'Visitor support choices in a small exhibition'},
     deck:{zh:'你需要在有限预算下选择优先方向：先做一个普通改进，试一个很小的 AI 服务，还是先收集更多证据？',en:'You need to choose a priority under a limited budget: make one ordinary improvement, pilot one small AI service, or gather more evidence first.'},
     situation:{zh:'你正在参观一家小型地方历史展览。参观结束时，博物馆请你帮忙选择下一步优先改善哪一项访客支持。大多数访客觉得展览基本清楚，但反馈反复提到三个问题：缺少另一种语言的翻译；有些文字太长或不够简明；缺少清楚的短路线和无障碍路线。博物馆预算有限，不能同时解决三个问题，只能先做一项小改进，或做一次很小、可停止的试验。',en:'You are visiting a small local-history exhibition. At the end, the museum asks you to help choose which visitor-support issue to improve first. Most visitors find the exhibition broadly clear, but feedback repeatedly mentions three problems: no translation into another needed language; some text is too long or not plain enough; and there is no clear short or accessible route. The museum has limited budget. It cannot solve all three at once, so it can make one small improvement or run one small pilot that can be stopped.'},
     institutionHeading:{zh:'博物馆正在征求你的意见',en:'The museum is asking for your view'},
@@ -243,7 +243,7 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.6';
+const PROBE_VERSION = 'web-1.7';
 const DATA_SCHEMA_VERSION = '1.5';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
