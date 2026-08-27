@@ -4,13 +4,13 @@ const landingCopy = {
   zh: {
     studyType:'研究参与网站', eyebrow:'文化遗产中的人工智能', titleA1:'AI 在博物馆中', titleA2:'可能适合做什么，', titleB1:'又可能', titleB2:'不适合做什么？',
     heroCredit:'《草莓小偷》纺织品，William Morris，1883 年',
-    intro:'请选择研究者指定的一个情景。你会先独立判断，再查看一份近未来 AI 提案，并把它改成你能够接受的版本。',
+    intro:'请选择研究者指定的一个情景。你会扮演一个具体角色，先根据少量背景作出第一反应，再查看一份近未来 AI 提案，并把它改成你认为更合适的版本。',
     start:'选择研究情景', time:'约 16–20 分钟 · 无标准答案 · 可中途继续',
     guideTitle:'你将一步步完成什么？', guideIntro:'每一页只处理一个任务；你的回答会自动保存在当前设备。',
-    guide1Title:'进入情景', guide1Body:'阅读一件藏品、一个工作现场或一项访客需求。',
-    guide2Title:'先独立判断', guide2Body:'在看到提案前，记录你的第一反应和理由。',
-    guide3Title:'检查并修改', guide3Body:'保留、质疑或删除提案内容，并补上使用条件和负责人。',
-    guide4Title:'再次判断与反思', guide4Body:'说明什么改变了，再思考实施后果、责任、维护和非 AI 方案。',
+    guide1Title:'进入角色和情景', guide1Body:'先看你在这个情景中的身份、藏品或工作背景，以及博物馆正在考虑的问题。',
+    guide2Title:'先说第一反应', guide2Body:'在看到完整提案前，选择你现在最接近的想法，并简单写出原因。',
+    guide3Title:'检查并修改提案', guide3Body:'指出哪些部分可以保留、哪些需要担心或删除，并写出你会怎样改。',
+    guide4Title:'再做一次选择', guide4Body:'看修改后的想法是否变化，再说明责任、维护、后果和不用 AI 的可能性。',
     resumeLabel:'已保存的进度', resumeTitle:'继续上次未完成的情景', resume:'继续填写',
     scenariosTitle:'选择你的研究情景', scenariosIntro:'如果研究者指定了编号，请只进入对应情景。每位参与者通常完成一个主要情景。',
     open:'开始这个情景', duration:'约 16–20 分钟', saveTitle:'自动保存', saveBody:'填写期间保存在当前浏览器；完成后由你确认提交到学校 OneDrive。',
@@ -19,13 +19,13 @@ const landingCopy = {
   en: {
     studyType:'Research participation website', eyebrow:'Artificial intelligence in cultural heritage', titleA1:'Where might AI fit ', titleA2:'in museums', titleB1:'— and where might ', titleB2:'it not?',
     heroCredit:'Strawberry Thief, William Morris, 1883',
-    intro:'Choose the situation assigned by the researcher. You will make an independent judgement, reveal a near-future AI proposal, then reshape it into a version you could accept.',
+    intro:'Choose the situation assigned by the researcher. You will take on a specific role, give your first reaction from a short context, review a near-future AI proposal, then change it into a version that makes better sense to you.',
     start:'Choose your situation', time:'About 16–20 minutes · No correct answer · Resume later',
     guideTitle:'What will you do, step by step?', guideIntro:'Each page has one task. Your answers are saved automatically on this device.',
-    guide1Title:'Enter the situation', guide1Body:'Read about an object, a workplace, or a visitor need.',
-    guide2Title:'Judge independently', guide2Body:'Record your first reaction and reason before seeing the proposal.',
-    guide3Title:'Review and change', guide3Body:'Keep, question or remove parts, then add conditions and responsibilities.',
-    guide4Title:'Judge and reflect', guide4Body:'Explain what changed, then consider consequences, responsibility, maintenance and non-AI options.',
+    guide1Title:'Enter a role and situation', guide1Body:'Read who you are in the situation, the object or workplace context, and the museum problem under discussion.',
+    guide2Title:'Give your first reaction', guide2Body:'Before seeing the full proposal, choose the answer closest to your current view and briefly explain why.',
+    guide3Title:'Review and change the proposal', guide3Body:'Mark what can stay, what worries you and what should be removed, then write how you would change it.',
+    guide4Title:'Choose again', guide4Body:'Say whether your view changed, then consider responsibility, maintenance, consequences and non-AI alternatives.',
     resumeLabel:'Saved progress', resumeTitle:'Continue an unfinished situation', resume:'Continue',
     scenariosTitle:'Choose your research situation', scenariosIntro:'If the researcher gave you a number, open only that situation. Each participant normally completes one main situation.',
     open:'Start this situation', duration:'About 16–20 minutes', saveTitle:'Automatic saving', saveBody:'Answers stay in this browser while you work; you confirm submission to the University OneDrive at the end.',
@@ -35,20 +35,21 @@ const landingCopy = {
 
 const ui = {
   briefing:{zh:'开始之前',en:'Before you begin'}, situation:{zh:'进入情景',en:'Enter the situation'},
-  initial:{zh:'第一次判断',en:'Initial judgement'}, proposal:{zh:'查看 AI 提案',en:'View the AI proposal'},
-  reshape:{zh:'修改提案',en:'Change the proposal'}, final:{zh:'再次判断',en:'Revised judgement'}, reflection:{zh:'最后反思',en:'Final reflection'}, complete:{zh:'完成',en:'Complete'},
+  initial:{zh:'第一次选择',en:'First choice'}, proposal:{zh:'查看 AI 提案',en:'View the AI proposal'},
+  reshape:{zh:'修改提案',en:'Change the proposal'}, final:{zh:'再次选择',en:'Second choice'}, reflection:{zh:'最后思考',en:'Final questions'}, complete:{zh:'完成',en:'Complete'},
   back:{zh:'返回',en:'Back'}, next:{zh:'继续',en:'Continue'}, begin:{zh:'开始这个情景',en:'Begin this situation'},
-  continueInitial:{zh:'作出第一次判断',en:'Make an initial judgement'}, reveal:{zh:'查看 AI 提案',en:'View the AI proposal'},
-  reshapeNext:{zh:'把提案改成你能接受的版本',en:'Change it into a version you could accept'}, finalNext:{zh:'作出再次判断',en:'Make a revised judgement'},
+  continueInitial:{zh:'作出第一次选择',en:'Make your first choice'}, reveal:{zh:'查看 AI 提案',en:'View the AI proposal'},
+  reshapeNext:{zh:'把提案改成你能接受的版本',en:'Change it into a version you could accept'}, finalNext:{zh:'作出再次选择',en:'Make your second choice'},
   reflectionNext:{zh:'完成最后反思',en:'Complete the final reflection'}, finish:{zh:'完成并查看结果',en:'Finish and review'}, participant:{zh:'匿名参与者编号',en:'Anonymous participant ID'},
   saved:{zh:'已自动保存在当前设备',en:'Saved automatically on this device'}, step:{zh:'步骤',en:'Step'}, of:{zh:'共',en:'of'},
   pageTask:{zh:'本页任务',en:'Your task on this page'}, help:{zh:'需要帮助？',en:'Need help?'},
-  helpBody:{zh:'先按你的真实判断作答。你不需要熟悉 AI，也不需要猜研究者想听什么。如果不愿回答某一页，可以在缺项提示出现后选择“跳过本页并继续”。',en:'Answer from your own point of view. You do not need AI expertise or to guess what the researcher expects. If you prefer not to answer a page, use “Skip this page and continue” after the missing-answer prompt appears.'},
+  roleLabel:{zh:'你在这个情景中的身份',en:'Your role in this situation'},
+  helpBody:{zh:'请按你自己的想法作答。这里不是考试，也不是测试你是否懂 AI。你可以支持、限制、暂缓或拒绝 AI；重要的是写出原因、条件和你觉得还缺什么。如果不愿回答某一页，可以在缺项提示出现后选择“跳过本页并继续”。',en:'Answer from your own point of view. This is not a test of AI knowledge. You may support, limit, delay or reject AI; what matters is why, under what conditions, and what still seems missing. If you prefer not to answer a page, use “Skip this page and continue” after the missing-answer prompt appears.'},
   prototype:{zh:'填写期间，回答只保存在当前设备；只有在最后点击“提交匿名回答”后，才会发送到学校 OneDrive。',en:'While you work, answers stay on this device. They are sent to the University OneDrive only after you select “Submit anonymous response” at the end.'},
   noCorrect:{zh:'没有标准答案。使用、限制、暂缓或拒绝 AI，都是有价值的回答。',en:'There is no correct answer. Using, limiting, deferring or rejecting AI are all valuable responses.'},
   ethicsSummary:{zh:'参与者信息摘要',en:'Participant information summary'},
   ethicsReference:{zh:'研究编号：ERGO II 114350',en:'Study reference: ERGO II 114350'},
-  ethicsPurpose:{zh:'研究目的：了解人们如何判断博物馆与文化遗产情境中可能的 AI 应用。本研究不会测试正在运行的 AI 系统。',en:'Purpose: to understand how people judge possible uses of AI in museum and cultural heritage settings. This study does not test a live AI system.'},
+  ethicsPurpose:{zh:'研究目的：了解人们如何看待博物馆与文化遗产情境中可能的 AI 应用。本研究不会测试正在运行的 AI 系统。',en:'Purpose: to understand how people make sense of possible uses of AI in museum and cultural heritage settings. This study does not test a live AI system.'},
   ethicsActivity:{zh:'参与内容：完成一个情景和一份暂定提案，约 16–20 分钟。没有标准答案，也不需要 AI 专业知识。',en:'What you will do: complete one situation and one provisional proposal in about 16–20 minutes. There are no correct answers, and no AI expertise is required.'},
   ethicsEligibility:{zh:'参与条件与可能影响：参与者须年满 18 岁。本研究风险较低，部分情景会涉及错误信息、来源不确定、文化简化或维护负担；参与者通常不会获得直接个人受益。',en:'Eligibility and possible effects: you must be aged 18 or over. This is a low-risk study, although some situations discuss misinformation, uncertain sources, cultural simplification or maintenance burden. There may be no direct personal benefit.'},
   ethicsChoice:{zh:'参与选择：参与完全自愿。你可以不回答任何问题，也可以随时停止。参与后两周内，可按照研究邀请中提供的方式申请撤回数据；数据匿名化并纳入分析后，可能无法再单独删除。',en:'Your choice: taking part is voluntary. You may leave any question unanswered or stop at any time. You may request data withdrawal within two weeks using the instructions supplied with the study invitation; once data are anonymised and integrated into analysis, individual removal may no longer be possible.'},
@@ -57,48 +58,48 @@ const ui = {
   consent:{zh:'我已经阅读上方的参与者信息摘要，理解参与完全自愿，并同意参加这项研究。',en:'I have read the participant information summary above, understand that taking part is voluntary, and agree to participate in this research.'},
   consentNote:{zh:'如果有任何内容不清楚，请先使用研究邀请中提供的联系方式咨询研究者。任何可选录音、照片或录像都需要另行同意。',en:'If anything is unclear, contact the researcher using the details supplied with the study invitation before continuing. Any optional audio, photography or video recording requires separate consent.'},
   aiWhat:{zh:'这里的 AI 是什么？',en:'What does AI mean here?'},
-  aiWhatBody:{zh:'能够从数据中识别模式、生成文字或图像、提出建议的计算系统。它可以写得很流畅，但不等于它知道事实、拥有许可或能够承担责任。',en:'Computational systems that identify patterns, generate text or images, or make suggestions. Fluent output does not mean the system knows the truth, has permission, or can take responsibility.'},
+  aiWhatBody:{zh:'这里的 AI 指能够根据已有资料生成文字、分类、建议或解释的计算系统。它可能很像搜索工具或写作助手，但它不一定知道事实是否正确，也不能自己取得许可或承担责任。',en:'Here, AI means a computational system that can generate text, classifications, suggestions or explanations from existing material. It may feel like a search tool or writing assistant, but it does not necessarily know what is true, obtain permission, or take responsibility.'},
   aiCan:{zh:'博物馆可能用它做什么？',en:'What might museums use it for?'},
   aiCanBody:{zh:'翻译和简明文字、数字展签、路线支持、馆藏标注、检索，以及整理不同材料。本研究中的具体系统仍是近未来构想。',en:'Translation and plain language, digital labels, route support, collection tagging, search, and organising different materials. The specific systems in this study remain near-future proposals.'},
-  aiChoose:{zh:'怎样判断是否适合？',en:'How might its use be judged?'},
-  aiChooseBody:{zh:'请同时考虑真实需求、来源和证据、许可、人工审核、出错后的纠正、长期维护，以及不用 AI 的替代做法。',en:'Consider the real need, sources and evidence, permission, human review, correction after errors, long-term maintenance, and non-AI alternatives.'},
+  aiChoose:{zh:'怎样看它是否合适？',en:'How might we decide whether it fits?'},
+  aiChooseBody:{zh:'请想一想：它解决的需要是否真实？信息来源是否可信？谁能审核或纠错？谁长期维护？如果不用 AI，博物馆是否也能用人工、展签、导览或网页解决同样问题？',en:'Think about whether the need is real, whether the source is trustworthy, who can check or correct the output, who maintains it over time, and whether the same problem could be addressed without AI through staff work, labels, tours or web pages.'},
   proposed:{zh:'研究用近未来提案｜现实中尚未实施',en:'Near-future research proposal | Not implemented'},
-  proposalInstruction:{zh:'请阅读下面每一部分，并为它选择一种标记。下一页可以写出具体修改。',en:'Read each part below and give it one mark. You can write specific changes on the next page.'},
-  proposalInstructionHelp:{zh:'“保留”表示可以照现在这样留下；“担心”表示方向可能有用，但存在风险或问题；“删除”表示不应放进提案；“质疑”表示信息不足，你还不能判断。',en:'“Keep” means leave it as written. “Concern” means it may be useful but creates a risk or problem. “Remove” means it should not be included. “Question” means you need more information before deciding.'},
+  proposalInstruction:{zh:'请把下面每一部分当作草案来看，并选择一个标记。下一页会让你写出具体修改。',en:'Treat each part below as a draft and choose one mark for it. On the next page you will write any changes you want.'},
+  proposalInstructionHelp:{zh:'“保留”= 这部分现在可以留下；“担心”= 方向可能有用，但有风险或需要条件；“删除”= 这部分不应使用；“质疑”= 你还缺信息，暂时不能判断。你不是在给 AI 打分，而是在决定这份提案哪些部分可以进入真实博物馆工作。',en:'“Keep” = this part can stay as it is. “Concern” = it may be useful but carries a risk or needs conditions. “Remove” = it should not be used. “Question” = you need more information before deciding. You are not rating AI; you are deciding which parts of the proposal could enter real museum work.'},
   keep:{zh:'保留',en:'Keep'}, concern:{zh:'担心',en:'Concern'}, remove:{zh:'删除',en:'Remove'}, question:{zh:'？质疑',en:'? Question'},
   unmarked:{zh:'尚未标记',en:'Not marked'}, changeThis:{zh:'你想怎样修改这一部分？（可选）',en:'How would you change this part? (optional)'},
-  changeThisHelp:{zh:'你可以改写原文、增加使用条件、指定负责人，或者说明为什么要删除。无需修改时可以留空。',en:'You may rewrite it, add a condition, assign responsibility, or explain why it should be removed. Leave this blank if you would not change it.'},
+  changeThisHelp:{zh:'如果你刚才标了“担心”“删除”或“质疑”，请说明原因或写出你会怎样改。例如：加上来源、把肯定语气改成“可能”、要求人工审核、说明谁负责。无需修改时可以留空。',en:'If you marked Concern, Remove or Question, explain why or write how you would change it. For example: add a source, change a certain claim to “may”, require human review, or name who is responsible. Leave this blank if you would not change it.'},
   addMissing:{zh:'提案还缺少什么重要内容？（可选）',en:'What important information or safeguard is still missing? (optional)'},
-  addMissingHelp:{zh:'例如：资料来源、社区许可、审核人员、纠错办法、维护时间，或者让访客选择不用 AI 的方式。',en:'For example: a source, community permission, a reviewer, a way to correct errors, maintenance time, or a way for visitors to opt out.'},
-  stopPrompt:{zh:'在哪些情况下（如果有），AI 需要停止处理、说明不确定，或把任务交给人？',en:'In which situations, if any, would the AI need to stop, show uncertainty, or pass the task to a person?'},
-  stopPromptHelp:{zh:'例如：资料来源互相矛盾、许可不明确、内容涉及敏感解释，或者没有工作人员能够审核。如果你认为 AI 不需要停止或交给人，也可以写明理由。',en:'For example: sources conflict, permission is unclear, the interpretation is sensitive, or no member of staff is available to review the output. If you think the AI would not need to stop or hand over, explain why.'},
-  comparison:{zh:'与第一次选择相比，你现在的想法有什么变化？',en:'How does your view now compare with your first choice?'},
-  comparisonHelp:{zh:'这里比较的是你第一次和现在的答案。三种情况都可以，没有变化也是有效结果。',en:'Compare your first answer with your answer now. All three responses are valid, including no change.'},
+  addMissingHelp:{zh:'请写“如果要真的使用，还必须知道或安排什么”。可以是资料来源、谁提供/批准内容、谁审核、如何纠错、维护成本、隐私说明，或访客不用 AI 的选择。',en:'Write what would still need to be known or arranged before real use. This could be sources, who provides or approves content, who checks it, how errors are corrected, maintenance cost, a privacy notice, or a way for visitors to avoid AI.'},
+  stopPrompt:{zh:'请写出 AI 需要停下来的情况。发生什么时，它不能继续自己处理？',en:'Please write the situations where AI should stop. What would make it unsafe or unsuitable for AI to continue on its own?'},
+  stopPromptHelp:{zh:'请尽量用“如果……那么……”来回答。例如：如果资料来源互相矛盾，AI 应显示“不确定”并交给馆员；如果没有公开许可，AI 不应改写或发布；如果内容涉及身份、宗教或社区记忆，应交给相关人员审核。你也可以写“我认为不需要停止”，但请说明原因。',en:'Try to answer in an “If…, then…” form. For example: if sources conflict, AI should show “uncertain” and pass to a curator; if permission is missing, AI should not rewrite or publish; if the content concerns identity, religion or community memory, it should be checked by relevant people. You may also write “I do not think it needs to stop”, but please explain why.'},
+  comparison:{zh:'和第一次选择相比，你现在的答案有什么变化？',en:'Compared with your first choice, has your answer changed?'},
+  comparisonHelp:{zh:'只比较你的两个选择和理由。三种答案都可以：改变了；选择没变但理由更清楚；或者基本没变。',en:'Only compare your two choices and reasons. All three answers are fine: changed; same choice but clearer reasons; or broadly unchanged.'},
   changed:{zh:'我选择了不同的答案',en:'I selected a different answer'}, clearer:{zh:'答案相同，但理由或条件更具体了',en:'Same answer, but clearer reasons or conditions'}, unchanged:{zh:'答案和主要理由都基本没有变化',en:'My answer and main reasons stayed broadly the same'},
-  evidenceUsed:{zh:'页面上的哪一项信息对你最后的判断影响最大？',en:'What information on the page influenced your final judgement most?'},
-  evidenceUsedHelp:{zh:'请指出一项具体内容，例如资料来源、许可规则、人员时间、审核步骤或非 AI 方案，并简要说明它怎样影响了你的判断。',en:'Name one specific item—for example, a source, permission rule, staffing limit, review step or non-AI option—and briefly say how it affected your judgement.'},
-  transparentNotActionable:{zh:'有没有哪项信息本身容易理解，却仍不足以让你决定下一步该做什么？',en:'Was any information easy to understand but still not enough to help you decide what to do next?'},
-  transparentNotActionableHelp:{zh:'例如，页面告诉了你资料来源、风险或负责人，却没有说明你能核查什么、修改什么、由谁批准，或何时停止。如果没有这种情况，请写“没有”。',en:'For example, the page may name a source, risk or responsible person without saying what can be checked or changed, who can approve it, or when the activity can be stopped. If no information had this problem, write “None”.'},
+  evidenceUsed:{zh:'页面上哪一条内容最影响你最后的选择？',en:'Which specific detail on the page most influenced your final choice?'},
+  evidenceUsedHelp:{zh:'请选择页面上的一条具体内容，并说明它怎样影响你。例子：藏品来源、AI 推测、是否有文献证据、谁审核、许可是否清楚、需要多少人力、是否有非 AI 做法。请不要只写“我相信页面信息”，而是指出是哪一条信息。',en:'Choose one specific detail from the page and say how it affected you. Examples: the object source, an AI inference, whether evidence is cited, who reviews it, whether permission is clear, staff workload, or a non-AI option. Try not to write only “I trust the page”; name the detail that mattered.'},
+  transparentNotActionable:{zh:'有没有哪条信息你看懂了，但仍然不知道该如何使用它来决定？',en:'Was there any detail you understood, but still could not use to make a decision?'},
+  transparentNotActionableHelp:{zh:'这题不是问“内容有没有趣”。它问的是：某条信息虽然读得懂，但还缺少证据、负责人、许可、成本、审核办法或下一步行动，所以你仍然不能据此决定。如果没有这种情况，请写“没有”。',en:'This is not asking whether the content is interesting. It asks whether a detail was understandable but still missing proof, an owner, permission, cost, a review process or a next action, so you could not use it to decide. If nothing had this problem, write “None”.'},
   anythingElse:{zh:'还有什么重要问题是本情景没有问到的？（可选）',en:'Is there an important issue that this situation did not ask about? (optional)'},
   anythingElseHelp:{zh:'你可以补充任何担忧、假设、受影响的人，或你认为更合适的做法。',en:'You may add a concern, an assumption, an affected person or group, or a different approach you would prefer.'},
   reflectionTitle:{zh:'想象这个方案真正使用以后',en:'Imagine the proposal in use'},
   reflectionDeck:{zh:'请每题写 1–3 句话。可以写正面或负面的结果，也可以认为某个问题不适用；请简单说明理由。',en:'Write 1–3 sentences for each question. Outcomes may be positive or negative. You may also say that a question does not apply, but please explain why.'},
   downstreamQuestion:{zh:'如果博物馆明年采用你选择或修改后的方案，最可能出现的一个结果是什么？',en:'If the museum used the version you chose or changed next year, what is one likely outcome?'},
-  downstreamHelp:{zh:'可以考虑对访客、社区、工作人员、藏品记录或博物馆服务带来的好处、问题或意外变化。',en:'Consider a benefit, problem or unexpected change for visitors, communities, staff, collection records or museum services.'},
-  accountabilityQuestion:{zh:'方案使用前，谁需要检查（如果需要）？如果发生错误，谁来处理？',en:'Before the proposal is used, who—if anyone—would need to check it? If something went wrong, who would respond?'},
-  accountabilityHelp:{zh:'请写出一个具体角色或群体，以及他们要检查什么。也请说明出错后，谁来纠正记录或联系受影响的人。',en:'Name a specific role or group and what they would check. Also say who would correct the record or contact anyone affected after an error.'},
+  downstreamHelp:{zh:'请写一个最可能发生的结果，可以是好处、问题或意外后果。想想谁会受到影响：普通访客、儿童或家庭、相关社区、馆员、研究人员、藏品记录，或博物馆服务。',en:'Write one likely result. It may be a benefit, problem or unexpected effect. Think about who is affected: visitors, children or families, related communities, curators, researchers, collection records or museum services.'},
+  accountabilityQuestion:{zh:'在真正使用前，谁需要检查什么？如果出错，谁负责改正？',en:'Before real use, who should check what? If something goes wrong, who should correct it?'},
+  accountabilityHelp:{zh:'请写得比“专家”更具体一些。例如：馆员检查事实；社区代表检查许可和表述；教育人员检查语言是否适合目标观众；数字团队检查系统日志；博物馆负责人决定是否公开更正。',en:'Please be more specific than “experts”. For example: a curator checks facts; a community representative checks permission and wording; an educator checks whether the language fits the audience; a digital team checks system logs; a museum manager decides whether to publish a correction.'},
   maintenanceQuestion:{zh:'这个方案长期使用后，什么事情可能会变得难以管理？',en:'What might become difficult to manage if this proposal is used over time?'},
-  maintenanceHelp:{zh:'可以考虑内容过时、许可改变、路线或模型更新、工作人员时间不足、任务积压或错误反复出现。请说明问题可能出现在哪里。',en:'Consider outdated content, changing permissions, route or model updates, limited staff time, backlogs or repeated errors. Say where the difficulty might appear.'},
-  nonAIQuestion:{zh:'博物馆能否不用 AI，也满足同样的需要？',en:'Could the museum meet the same need without AI?'},
-  nonAIHelp:{zh:'请写出一种非 AI 做法，并说明它在什么情况下会比 AI 更合适。如果你认为没有合适的非 AI 做法，也可以说明原因。',en:'Describe one non-AI approach and when it would be more suitable than AI. If you do not think there is a suitable alternative, explain why.'},
+  maintenanceHelp:{zh:'请写一个长期问题，并说明它会在哪里出现。例如：新研究出现后文字过时；许可改变后内容没更新；工作人员没有时间审核；错误标签越积越多；系统费用或设备维护变高。',en:'Write one long-term problem and where it would appear. For example: text becomes outdated after new research; permission changes but content is not updated; staff lack time to review; incorrect tags accumulate; system cost or device maintenance grows.'},
+  nonAIQuestion:{zh:'不用 AI，博物馆还能怎样满足同样的需要？',en:'Without AI, how else could the museum meet the same need?'},
+  nonAIHelp:{zh:'请写一种具体做法，不要只写“可以，但需要更多人力”。例如：馆员重写展签、增加纸质说明、做导览、请社区成员共同撰写、在网页上增加来源说明。再说明什么时候这种做法比 AI 更合适。',en:'Name one concrete approach; try not to write only “yes, but it needs more staff”. For example: a curator rewrites the label, paper notes are added, a guided tour is offered, community members co-write the text, or the website adds source notes. Then say when this would be more suitable than AI.'},
   required:{zh:'请完成本页中的必答项后再继续。',en:'Please complete the required items before continuing.'},
   skipPage:{zh:'跳过本页并继续',en:'Skip this page and continue'},
   skipNote:{zh:'你可以选择不回答；系统会把本页记录为已跳过。',en:'You may choose not to answer. This page will be recorded as skipped.'},
   markRequired:{zh:'请至少标记提案中的一个部分。',en:'Please mark at least one part of the proposal.'},
   consentRequired:{zh:'请先确认你已经阅读参与者信息摘要并同意参加研究。',en:'Please confirm that you have read the participant information summary and agree to take part.'},
-  initialChoiceRequired:{zh:'请选择一个初步判断。',en:'Choose an initial judgement.'}, confidenceRequired:{zh:'请选择信心程度。',en:'Choose a confidence level.'}, reasonRequired:{zh:'请说明选择的主要理由。',en:'Give the main reason for your choice.'},
+  initialChoiceRequired:{zh:'请选择一个初步答案。',en:'Choose a first answer.'}, confidenceRequired:{zh:'请选择信心程度。',en:'Choose a confidence level.'}, reasonRequired:{zh:'请说明选择的主要理由。',en:'Give the main reason for your choice.'},
   stopRequired:{zh:'请说明在哪些情况下（如果有），AI 需要停止、显示不确定，或交给人处理。',en:'Explain the situations, if any, in which the AI would need to stop, show uncertainty or pass the task to a person.'}, taskRequired:{zh:'请回答这个情景的提案修改任务。',en:'Answer the situation-specific proposal task.'},
-  revisedRequired:{zh:'请选择再次判断的结果。',en:'Choose your revised judgement.'}, comparisonRequired:{zh:'请选择你的想法是否发生变化。',en:'Indicate whether your thinking changed.'}, evidenceRequired:{zh:'请写出影响你最后判断的一项信息。',en:'Name one item that influenced your final judgement.'}, actionableRequired:{zh:'请说明是否有信息让你仍不知道下一步能做什么；如果没有，请写“没有”。',en:'Say whether any information left you unsure what to do next. If not, write “None”.'},
+  revisedRequired:{zh:'请选择第二次答案。',en:'Choose your second answer.'}, comparisonRequired:{zh:'请选择你的想法是否发生变化。',en:'Indicate whether your thinking changed.'}, evidenceRequired:{zh:'请写出影响你最后选择的一项具体信息。',en:'Name one specific item that influenced your final choice.'}, actionableRequired:{zh:'请说明是否有信息让你仍不知道该如何决定；如果没有，请写“没有”。',en:'Say whether any information left you unsure how to decide. If not, write “None”.'},
   downstreamRequired:{zh:'请写出实施后可能出现的一个结果。',en:'Describe one possible outcome after implementation.'}, accountabilityRequired:{zh:'请说明谁负责审核和纠错。',en:'Explain who should review and correct errors.'}, maintenanceRequired:{zh:'请说明最可能出现的维护问题。',en:'Describe the most likely maintenance problem.'}, nonAIRequired:{zh:'请考虑一种非 AI 做法，以及它何时更合适。',en:'Consider a non-AI approach and when it would be more appropriate.'},
   downloadJson:{zh:'下载匿名回答（JSON）',en:'Download anonymous response (JSON)'},
   downloadCsv:{zh:'下载分析用表格（CSV）',en:'Download analysis file (CSV)'},
@@ -117,15 +118,15 @@ const ui = {
   backupBody:{zh:'提交失败时，请下载 JSON 并交给研究者；提交成功后无需再次发送。',en:'If submission fails, download the JSON and give it to the researcher. No further action is needed after a successful submission.'},
   receipt:{zh:'提交编号',en:'Submission receipt'},
   completeTitle:{zh:'谢谢，你已经完成这个情景。',en:'Thank you. You have completed this situation.'},
-  completeBody:{zh:'请先查看你的判断路径，然后点击“提交匿名回答”。只有点击提交后，研究者才能收到这份数据。',en:'Review your judgement path, then select “Submit anonymous response”. The researcher receives your data only after you submit.'},
-  summary:{zh:'你的判断路径',en:'Your judgement path'}, restart:{zh:'返回情景首页',en:'Return to scenario index'},
-  confidence:{zh:'你对刚才的选择有多大信心？',en:'How confident are you about the choice above?'},
-  confidenceHelp:{zh:'1 表示很不确定，5 表示很确定。这里评估的是你对自己选择的信心，不是你对 AI 的信任。',en:'1 means very unsure and 5 means very sure. Rate confidence in your own choice, not your trust in AI.'},
+  completeBody:{zh:'请先查看你的选择路径，然后点击“提交匿名回答”。只有点击提交后，研究者才能收到这份数据。',en:'Review your choice path, then select “Submit anonymous response”. The researcher receives your data only after you submit.'},
+  summary:{zh:'你的选择路径',en:'Your choice path'}, restart:{zh:'返回情景首页',en:'Return to scenario index'},
+  confidence:{zh:'你对刚才的选择有多大把握？',en:'How sure are you about the choice above?'},
+  confidenceHelp:{zh:'1 表示“我只是先选一个，还很不确定”；5 表示“按目前信息，我比较确定”。这里问的是你对自己选择的把握，不是你是否信任 AI。',en:'1 means “I am only making a tentative choice”; 5 means “with the information given, I am fairly sure”. This asks about confidence in your own choice, not trust in AI.'},
   uncertain:{zh:'很不确定',en:'Very uncertain'}, certain:{zh:'很确定',en:'Very certain'},
   reason:{zh:'你作出这个选择，最主要的原因是什么？',en:'What was the main reason for your choice?'},
-  reasonHelp:{zh:'请说明对你最重要的一点。例如：是否有实际帮助、资料是否可靠、是否得到许可、可能造成的风险，或需要多少人力。',en:'Explain the one issue that mattered most to you—for example usefulness, reliable evidence, permission, possible harm or staff workload.'},
-  missing:{zh:'还有哪一项信息会帮助你作出更有把握的判断？（可选）',en:'What additional information would help you make a more confident judgement? (optional)'},
-  missingHelp:{zh:'请写一项即可，例如资料来源、谁来审核、成本、社区意见、出错后的处理方式。如果不需要更多信息，可以留空。',en:'Name one item, such as a source, reviewer, cost, community view or error-response plan. Leave this blank if you do not need more information.'},
+  reasonHelp:{zh:'请写你为什么这样选。可以很短，例如：它能帮助我理解藏品；我担心来源不清；我想知道谁审核；我觉得故事背景比基础信息更重要；或者我觉得不用 AI 也可以。',en:'Write why you chose this. A short answer is fine: it would help me understand the object; I worry the source is unclear; I want to know who checks it; the story context matters more than basic facts; or I think AI is not needed.'},
+  missing:{zh:'你还想知道什么，才会更有把握？（可选）',en:'What else would you want to know before feeling more sure? (optional)'},
+  missingHelp:{zh:'请写一项你还缺的信息。例子：更多时代背景、藏品来源、谁写了原说明、AI 用了哪些资料、谁审核、成本多少、出错后怎么办。如果没有，可以留空。',en:'Name one missing piece of information. Examples: more historical context, the object’s provenance, who wrote the original text, what sources the AI used, who checks it, cost, or what happens after an error. Leave blank if nothing is missing.'},
   objectReal:{zh:'真实藏品资料',en:'Real object record'}, fictional:{zh:'研究构造',en:'Research-created'},
 };
 
@@ -140,13 +141,13 @@ const scenarios = {
   S1: {
     shortTitle:{zh:'AI 简明展签',en:'AI plain-language label'}, accent:'#ff5438', visual:'object',
     title:{zh:'你会使用这张文物的 AI 展签吗？',en:'Would you use this object’s AI label?'},
-    deck:{zh:'真实馆藏记录、馆方解释和 AI 推测，你能分清吗？',en:'Can you distinguish the collection record, museum interpretation and AI inference?'},
+    deck:{zh:'你会看到一件真实藏品、一段原始馆藏说明，以及一张研究构造的 AI 简明展签。请判断哪些内容有帮助，哪些内容还需要来源、解释或人工审核。',en:'You will see a real object, an original collection description and a research-created AI plain-language label. Decide what is useful, what still needs sources, explanation or human checking.'},
     objectTitle:{zh:'荷包｜英国｜17 世纪早期',en:'Purse | British | early 17th century'},
     objectMeta:{zh:'丝和金属线绣于帆布｜7.6 × 6.7 cm｜The Met 29.23.19',en:'Silk and metal thread on canvas | 7.6 × 6.7 cm | The Met 29.23.19'},
     objectBody:{zh:'这件精细刺绣的荷包可能对应 16、17 世纪清单中的 sweet bags；它似乎随身佩戴，用来装有香味的草药和香精，以抵御日常生活中的难闻气味。',en:'This elaborately embroidered purse probably corresponds to “sweet bags” listed in sixteenth- and seventeenth-century inventories. It appears to have been worn on the person and to have carried scented herbs and essences against unpleasant everyday smells.'},
-    situation:{zh:'你正在浏览 The Met 的这件真实藏品，并选择是否打开“AI 简明展签”。AI 展签承诺用更易懂的文字，并区分馆藏记录、馆方解释和 AI 推测。你也可以继续只看带有“可能”“似乎”等谨慎措辞的原记录。',en:'You are viewing this real object in The Met collection and deciding whether to open an “AI plain-language label”. It promises easier text and separate markings for the collection record, museum interpretation and AI inference. You may instead continue with the original record and its cautious words such as “probably” and “appears”.'},
+    situation:{zh:'你正在浏览 The Met 的这件真实藏品。原馆藏说明使用了“可能”“似乎”等谨慎措辞，因为有些信息并不能完全确定。现在页面提供一张“AI 简明展签”，承诺把说明写得更容易读，并标出哪些是馆藏记录中已有的信息、哪些是 AI 根据文本作出的解释或推测。你可以选择打开它，也可以只看原记录。',en:'You are viewing this real object in The Met collection. The original record uses cautious words such as “probably” and “appears”, because some details are not fully certain. The page now offers an “AI plain-language label”. It promises easier wording and marks what comes from the collection record and what is AI interpretation or inference. You can open it, or continue with the original record only.'},
     institutionHeading:{zh:'你可以选择',en:'You can choose'},
-    institution:{zh:'这项近未来服务让访客选择“只看原馆藏记录”或“打开 AI 简明展签”。AI 会把文字写得更易懂，并尝试区分馆藏记录、馆方解释和 AI 推测。',en:'This near-future service lets visitors choose “original collection record only” or “open the AI plain-language label”. AI rewrites the text and tries to distinguish the collection record, museum interpretation and AI inference.'},
+    institution:{zh:'这项近未来服务不是已经上线的系统，而是一份研究提案。它让访客在“只看原馆藏记录”和“打开 AI 简明展签”之间选择。AI 会把文字写得更容易读，也可能加入故事化解释；但任何故事、象征意义或生活方式说明，都需要清楚标明来源或不确定性。',en:'This near-future service is not a live system; it is a research proposal. It lets visitors choose between “original collection record only” and “open the AI plain-language label”. AI may make the text easier to read and may add story-like interpretation, but any story, symbolic meaning or lifestyle context needs a clear source or uncertainty note.'},
     initialQuestion:{zh:'作为参观者，你现在愿意打开这张 AI 简明展签吗？',en:'As a visitor, would you open this AI plain-language label?'},
     initialHelp:{zh:'请只根据上一页的信息，选择最接近你第一反应的答案。完整提案会在下一页显示。',en:'Choose the answer closest to your first reaction using only the information on the previous page. You will see the full proposal next.'},
     initialOptions:[{zh:'愿意使用',en:'Yes, I would use it'},{zh:'愿意使用，但只查看有明确来源的内容',en:'I would use it, but only for content with a clear source'},{zh:'不愿意使用，只看原馆藏记录',en:'No; I would use the original collection record only'},{zh:'还需要更多信息才能决定',en:'I need more information before deciding'}],
@@ -155,14 +156,14 @@ const scenarios = {
     proposalCards:[
       {title:{zh:'AI 生成的简明说明',en:'Plain-language text written by AI'},body:{zh:'这是一只 17 世纪早期的英国 sweet bag，随身佩戴，用香草和香精遮盖难闻气味；花卉图案也象征祝福。',en:'This is an early seventeenth-century British sweet bag, worn on the person with herbs and essences to cover unpleasant smells; its floral motif also symbolises blessing.'}},
       {title:{zh:'馆藏记录中可以核对的信息',en:'What the collection record confirms'},body:{zh:'荷包；17 世纪早期；英国；丝与金属线绣于帆布；7.6 × 6.7 cm；馆藏编号 29.23.19。',en:'Purse; early 17th century; British; silk and metal thread on canvas; 7.6 × 6.7 cm; object number 29.23.19.'}},
-      {title:{zh:'馆方原说明和 AI 推测有什么不同？',en:'How does the museum description differ from the AI inference?'},body:{zh:'馆方保留“可能”“似乎”：它可能对应清单中的 sweet bags，似乎随身佩戴。“花卉象征祝福”没有出现在馆藏记录中。',en:'The museum retains “probably” and “appears”. “Floral motif symbolises blessing” is not in the record.'}},
-      {title:{zh:'这张展签仍然无法告诉你',en:'What this label still cannot tell you'},body:{zh:'谁使用过它、触感如何、怎样制作，以及没有被记录下来的知识。',en:'Who used it, how it felt, how it was made, or knowledge that was never recorded.'}}
+      {title:{zh:'哪些是记录，哪些只是推测？',en:'What is recorded, and what is only inferred?'},body:{zh:'原馆藏说明使用“可能”“似乎”，表示信息并不完全确定。AI 展签可以保留这种谨慎表达。“花卉象征祝福”不在馆藏记录中，如果保留，应标明这是解释或推测，并说明依据。',en:'The original record uses “probably” and “appears” to show that some information is not fully certain. The AI label may keep this cautious wording. “Floral motif symbolises blessing” is not in the collection record; if kept, it should be marked as interpretation or inference and linked to a reason.'}},
+      {title:{zh:'还有哪些问题没有答案？',en:'What questions remain unanswered?'},body:{zh:'这张展签可以说明基本信息，但仍不能可靠回答：谁真正使用过它、它摸起来如何、具体怎样制作、或者哪些知识从未被记录。把这些未知写出来，可以避免 AI 看起来“什么都知道”。',en:'The label can explain basic information, but it still cannot reliably answer who actually used it, how it felt, exactly how it was made, or what knowledge was never recorded. Stating these unknowns helps avoid making AI look as if it knows everything.'}}
     ],
     revisedQuestion:{zh:'看过并修改提案后，你现在会怎样选择？',en:'After reviewing and changing the proposal, what would you choose now?'},
-    revisedHelp:{zh:'请选择现在最接近你想法的答案。它可以和第一次选择相同，也可以不同。',en:'Choose the answer closest to your view now. It may be the same as your first choice or different.'},
+    revisedHelp:{zh:'请根据你刚才看到的来源、推测、未知内容和修改想法，再选择一次。答案可以和第一次相同，也可以不同。',en:'Choose again after considering the sources, inferences, unknowns and changes you just reviewed. Your answer may be the same as before or different.'},
     revisedOptions:[{zh:'愿意按现在的内容使用',en:'I would use it with the current content'},{zh:'修改或删减 AI 推测后愿意使用',en:'I would use it after AI inferences were revised or removed'},{zh:'只看原馆藏记录，不使用 AI 展签',en:'I would use the original record, not the AI label'},{zh:'还需要更多信息才能决定',en:'I need more information before deciding'}],
-    task:{zh:'请把展签中的一句话改写成你能够接受的版本。',en:'Rewrite one sentence from the label into a version you could accept.'},
-    taskHelp:{zh:'请选择一句说得太肯定、缺少证据，或不适合由 AI 直接表达的话。你可以增加来源或不确定性说明，也可以删除其中的推测。',en:'Choose a sentence that sounds too certain, lacks evidence or should not be stated directly by AI. You may add a source or uncertainty note, or remove an inference.'}
+    task:{zh:'请从这张展签中选一句话，把它改成你更能接受的版本。',en:'Choose one sentence from this label and rewrite it into a version you could better accept.'},
+    taskHelp:{zh:'请尽量改写本页展签里的原句，不要换成另一件藏品。你可以把肯定语气改成“可能/似乎”，加上“根据馆藏记录”，删除没有来源的故事，或写明“目前无法确定”。',en:'Try to rewrite a sentence from this label, not a different object. You might change a certain claim to “may/appears”, add “according to the collection record”, remove an unsourced story, or state “this is not currently known”.'}
   },
   S2: {
     shortTitle:{zh:'多声部与许可',en:'Multiple voices and permission'}, accent:'#d9ff4f', visual:'withheld',
@@ -202,7 +203,7 @@ const scenarios = {
     proposalNote:{zh:'下面四部分属于同一个审核流程，不是四个方案。',en:'The four parts below belong to one review process; they are not four options.'},
     proposalCards:[
       {title:{zh:'待审核：AI 建议的标签',en:'Waiting for review: an AI-suggested tag'},body:{zh:'AI 标签不会覆盖原记录；每条建议都显示模型版本、生成日期和参考依据。',en:'AI tags do not overwrite the original record. Each suggestion shows the model version, date and supporting reference.'}},
-      {title:{zh:'先判断风险，再决定怎样审核',en:'Judge the risk before choosing the review level'},body:{zh:'颜色、形状可以抽查；年代、地区、身份、文化含义和敏感用语在公开前需要逐条审核。',en:'Colour and shape may be sampled. Date, region, identity, cultural meaning and sensitive terms need item-by-item review before publication.'}},
+      {title:{zh:'先看风险，再决定怎样审核',en:'Check the risk before choosing the review level'},body:{zh:'颜色、形状可以抽查；年代、地区、身份、文化含义和敏感用语在公开前需要逐条审核。',en:'Colour and shape may be sampled. Date, region, identity, cultural meaning and sensitive terms need item-by-item review before publication.'}},
       {title:{zh:'记录每一次审核决定',en:'Keep a record of every review decision'},body:{zh:'无论接受、修改、拒绝还是暂缓，都要记录审核人、日期和理由。有争议的标签可以暂时隐藏，批量修改也可以撤回。',en:'For every decision—accept, edit, reject or defer—record the reviewer, date and reason. Disputed tags can be hidden, and bulk changes can be rolled back.'}},
       {title:{zh:'目前仍未解决的维护问题',en:'A maintenance problem that remains'},body:{zh:'提案要求指定负责人和每周处理量，并在模型更新后复查。但现有人力只有半天，积压仍可能发生；无人负责时应缩小或暂停。',en:'The proposal requires an owner, a weekly limit and re-checks after model updates. Staff still have only half a day, so a backlog may grow. The pilot should narrow or pause when nobody can own the work.'}}
     ],
@@ -242,8 +243,8 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.4';
-const DATA_SCHEMA_VERSION = '1.3';
+const PROBE_VERSION = 'web-1.5';
+const DATA_SCHEMA_VERSION = '1.4';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
 let phase = 'landing';
@@ -444,6 +445,7 @@ function renderVisual(s) {
 
 function renderSituation(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.situation)}`,t(s.title),t(s.deck))}
+    <section class="role-banner"><span>${t(ui.roleLabel)}</span><b>${t(scenarioIndex.find(item=>item.id===session.scenario).rolePrompt)}</b></section>
     <section class="situation-layout"><div>${renderVisual(s)}</div><div class="situation-copy"><p>${t(s.situation)}</p><aside><span>${t(s.institutionHeading)}</span><p>${t(s.institution)}</p></aside><div class="fiction-note"><b>${t(ui.fictional)}</b><span>${language==='zh'?'具体 AI 服务、界面和机构决定均为研究构造。':'The specific AI service, interface and institutional decision are research-created.'}</span></div></div></section>
     ${bottomNav(t(ui.back),t(ui.continueInitial),'initial')}`;
 }
@@ -469,7 +471,7 @@ function renderInitial(s) {
 
 function renderProposal(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.proposed)}`,t(s.proposalTitle),t(s.proposalNote))}
-    <div class="reveal-banner"><b>${language==='zh'?'你的第一次判断已经保存。':'Your initial judgement has been saved.'}</b><span>${language==='zh'?'下面才会显示研究构造的近未来提案。它不是已经投入使用的系统。':'The research-created near-future proposal is revealed below. It is not an implemented system.'}</span></div>
+    <div class="reveal-banner"><b>${language==='zh'?'你的第一次选择已经保存。':'Your first choice has been saved.'}</b><span>${language==='zh'?'下面才会显示研究构造的近未来提案。它不是已经投入使用的系统。':'The research-created near-future proposal is shown below. It is not an implemented system.'}</span></div>
     <div class="proposal-instruction"><span>1</span><div><p>${t(ui.proposalInstruction)}</p><small class="question-help">${t(ui.proposalInstructionHelp)}</small></div></div>
     <section class="proposal-grid">${s.proposalCards.map((card,index)=>{
       const mark=session.proposalMarks[index].action;
@@ -482,7 +484,7 @@ function renderProposal(s) {
 function actionLabel(action) { return action ? t(ui[action]) : t(ui.unmarked); }
 
 function renderReshape(s) {
-  return `${phaseHeading(`${session.scenario} · ${t(ui.reshape)}`,language==='zh'?'把提案改成你能够接受的版本':'Reshape the proposal into a version you could accept',language==='zh'?'请根据刚才的标记修改提案。你可以调整谁来决定、AI 可以做什么，以及什么时候需要停止。':'Use your marks and notes to make the proposal workable for you. You can change who decides, what AI may do and when it needs to stop.')}
+  return `${phaseHeading(`${session.scenario} · ${t(ui.reshape)}`,language==='zh'?'把提案改成你能够接受的版本':'Change the proposal into a version you could accept',language==='zh'?'请根据刚才的标记修改提案。你可以调整谁来决定、AI 可以做什么，以及什么时候需要停止。':'Use your marks and notes to make the proposal workable for you. You can change who decides, what AI may do and when it needs to stop.')}
     <section class="reshape-list">${s.proposalCards.map((card,index)=>{const mark=session.proposalMarks[index];return `<article><div class="reshape-title"><span class="status-chip ${mark.action}">${actionLabel(mark.action)}</span><h2>${t(card.title)}</h2></div><p>${t(card.body)}</p><label class="text-field compact"><span>${t(ui.changeThis)}</span><small class="question-help">${t(ui.changeThisHelp)}</small><textarea rows="3" data-note-index="${index}">${escapeText(mark.note)}</textarea></label></article>`}).join('')}</section>
     <section class="boundary-fields">
       <label class="text-field"><span>+ ${t(ui.addMissing)}</span><small class="question-help">${t(ui.addMissingHelp)}</small><textarea rows="4" data-session-field="addedContent">${escapeText(session.addedContent)}</textarea></label>
