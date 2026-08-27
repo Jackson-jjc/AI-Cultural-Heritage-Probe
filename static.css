@@ -207,6 +207,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .text-field { display:flex; flex-direction:column; gap:10px; }
 .text-field>span { font-size:13px; font-weight:700; }
 .text-field>span b { color:#9f1733; }
+.question-help { color:#555; display:block; font-size:12px; font-weight:400; line-height:1.65; margin:0; max-width:780px; }
 .text-field textarea { background:#fff; border:1px solid #777; border-radius:0; font:15px/1.6 var(--sans); min-height:116px; padding:16px; resize:vertical; }
 .text-field textarea:focus { border-color:var(--ink); box-shadow:0 0 0 3px color-mix(in srgb,var(--scenario-accent) 65%,transparent); outline:none; }
 
@@ -214,7 +215,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .reveal-banner b { font-size:13px; }
 .reveal-banner span { color:#ccc; font-size:12px; line-height:1.55; }
 .proposal-instruction { align-items:center; background:var(--scenario-accent); display:flex; gap:17px; margin-bottom:20px; padding:17px 20px; }
-.proposal-instruction span { align-items:center; border:1px solid var(--ink); border-radius:50%; display:flex; flex:none; font-size:12px; height:28px; justify-content:center; width:28px; }
+.proposal-instruction>span { align-items:center; border:1px solid var(--ink); border-radius:50%; display:flex; flex:none; font-size:12px; height:28px; justify-content:center; width:28px; }
+.proposal-instruction>div { display:grid; gap:5px; }
 .proposal-instruction p { font-size:13px; line-height:1.55; margin:0; }
 .proposal-grid { display:grid; gap:12px; grid-template-columns:repeat(2,1fr); }
 .proposal-card { background:#fff; border:2px solid transparent; display:flex; flex-direction:column; min-height:330px; padding:20px; position:relative; }
@@ -241,6 +243,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .boundary-fields .task-field { background:var(--scenario-accent); grid-column:1 / -1; }
 .comparison { display:grid; gap:10px; grid-template-columns:repeat(3,1fr); }
 .comparison legend { margin-bottom:16px; }
+.comparison>.question-help { grid-column:1 / -1; margin-bottom:6px; }
 .comparison label { background:#fff; cursor:pointer; min-height:80px; padding:17px; }
 .comparison input { accent-color:var(--ink); height:18px; margin:0 10px 0 0; width:18px; }
 .comparison label:has(input:checked) { background:var(--scenario-accent); }
