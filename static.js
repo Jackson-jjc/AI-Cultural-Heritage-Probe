@@ -44,6 +44,10 @@ const ui = {
   saved:{zh:'已自动保存在当前设备',en:'Saved automatically on this device'}, step:{zh:'步骤',en:'Step'}, of:{zh:'共',en:'of'},
   pageTask:{zh:'本页任务',en:'Your task on this page'}, help:{zh:'需要帮助？',en:'Need help?'},
   roleLabel:{zh:'你在这个情景中的身份',en:'Your role in this situation'},
+  examplesTitle:{zh:'帮助你理解这个情景的例子',en:'Examples to help you picture the situation'},
+  contextReminder:{zh:'情景提醒',en:'Situation reminder'},
+  reminderRole:{zh:'你的身份',en:'Your role'},
+  reminderFocus:{zh:'请记住',en:'Keep in mind'},
   helpBody:{zh:'请按你自己的想法作答。这里不是考试，也不是测试你是否懂 AI。你可以支持、限制、暂缓或拒绝 AI；重要的是写出原因、条件和你觉得还缺什么。如果不愿回答某一页，可以在缺项提示出现后选择“跳过本页并继续”。',en:'Answer from your own point of view. This is not a test of AI knowledge. You may support, limit, delay or reject AI; what matters is why, under what conditions, and what still seems missing. If you prefer not to answer a page, use “Skip this page and continue” after the missing-answer prompt appears.'},
   prototype:{zh:'填写期间，回答只保存在当前设备；只有在最后点击“提交匿名回答”后，才会发送到学校 OneDrive。',en:'While you work, answers stay on this device. They are sent to the University OneDrive only after you select “Submit anonymous response” at the end.'},
   noCorrect:{zh:'没有标准答案。使用、限制、暂缓或拒绝 AI，都是有价值的回答。',en:'There is no correct answer. Using, limiting, deferring or rejecting AI are all valuable responses.'},
@@ -142,6 +146,8 @@ const scenarios = {
     shortTitle:{zh:'AI 简明展签',en:'AI plain-language label'}, accent:'#ff5438', visual:'object',
     title:{zh:'一件真实藏品的 AI 简明展签',en:'An AI plain-language label for a real object'},
     deck:{zh:'你会看到一件真实藏品、一段原始馆藏说明，以及一张研究构造的 AI 简明展签。请判断哪些内容有帮助，哪些内容还需要来源、解释或人工审核。',en:'You will see a real object, an original collection description and a research-created AI plain-language label. Decide what is useful, what still needs sources, explanation or human checking.'},
+    recap:{zh:'你是一名参观者，正在比较原始馆藏记录和一张拟议的 AI 简明展签。重点不是 AI 好不好，而是这张展签哪些内容能帮助理解，哪些内容需要来源、不确定性说明或人工审核。',en:'You are a visitor comparing the original collection record with a proposed AI plain-language label. The focus is not whether AI is good or bad, but which parts help understanding and which need sources, uncertainty notes or human review.'},
+    examples:[{zh:'AI 如果说“花卉象征祝福”，需要说明这是馆藏记录、研究解释，还是推测。',en:'If AI says “the flowers symbolise blessing”, it should show whether this comes from the record, research interpretation or inference.'},{zh:'参观者可能想知道这个荷包在当时怎样使用、谁可能佩戴、它和日常生活有什么关系。',en:'A visitor may want to know how the purse was used, who might have worn it, and how it related to everyday life.'},{zh:'原记录写“可能”或“似乎”时，AI 展签也不应把它改成确定事实。',en:'When the original record says “probably” or “appears”, the AI label should not turn that into a certain fact.'}],
     objectTitle:{zh:'荷包｜英国｜17 世纪早期',en:'Purse | British | early 17th century'},
     objectMeta:{zh:'丝和金属线绣于帆布｜7.6 × 6.7 cm｜The Met 29.23.19',en:'Silk and metal thread on canvas | 7.6 × 6.7 cm | The Met 29.23.19'},
     objectBody:{zh:'这件精细刺绣的荷包可能对应 16、17 世纪清单中的 sweet bags；它似乎随身佩戴，用来装有香味的草药和香精，以抵御日常生活中的难闻气味。',en:'This elaborately embroidered purse probably corresponds to “sweet bags” listed in sixteenth- and seventeenth-century inventories. It appears to have been worn on the person and to have carried scented herbs and essences against unpleasant everyday smells.'},
@@ -169,6 +175,8 @@ const scenarios = {
     shortTitle:{zh:'多声部与许可',en:'Multiple voices and permission'}, accent:'#d9ff4f', visual:'withheld',
     title:{zh:'一件仪式用品的多声部展示页',en:'A multi-voice display page for a ceremonial object'},
     deck:{zh:'你需要决定：当馆藏记录、专家研究、社区说法和个人记忆不一致时，AI 只能整理材料，还是也可以改写和综合？',en:'You need to decide what AI may do when a collection record, specialist research, community wording and personal memory do not fully agree.'},
+    recap:{zh:'你是一名与社区合作的策展人员，正在审核一件仪式用品的数字展示页。不同材料对名称、用途和流转经历说法不完全一致，有些内容也可能需要社区许可。重点是决定 AI 只能整理材料，还是可以改写、翻译或综合。',en:'You are a curator working with communities, reviewing a digital display page for a ceremonial object. Different materials disagree about its name, use and transfer history, and some content may need community permission. The focus is deciding whether AI may only organise material, or may also rewrite, translate or combine it.'},
+    examples:[{zh:'旧馆藏记录可能使用一个殖民时期名称，但相关社区现在使用另一个名称。',en:'The old collection record may use a colonial-era name, while the related community now uses another name.'},{zh:'专家研究可能提出一种用途解释，但社区成员认为某些宗教或仪式知识不适合公开。',en:'Specialist research may suggest one use, while community members say some religious or ceremonial knowledge should not be public.'},{zh:'一位讲述者可能提供个人记忆，但这段记忆不能代表所有社区成员，也可能不希望被 AI 改写。',en:'One contributor may share a personal memory, but it does not represent everyone in the community and may not be suitable for AI rewriting.'}],
     situation:{zh:'你正在帮助一家博物馆审核一件仪式用品的数字展示页。关于这件藏品，不同材料说法不完全一致：馆藏记录有一个名称和流转记录；专家研究提出另一种解释；相关社区成员可能使用不同名称；一位讲述者还提供了个人记忆。有些知识可能不能公开，也不一定可以交给机器改写。博物馆正在确认展示许可，所以这里暂不显示图片。',en:'You are helping a museum review a digital page for a ceremonial object. Different materials do not fully agree: the collection record gives one name and transfer history; specialist research offers another interpretation; related community members may use different names; and one contributor has shared a personal memory. Some knowledge may not be public, and may not be suitable for machine rewriting. The museum is still checking display permission, so the image is not shown here.'},
     institutionHeading:{zh:'博物馆正在考虑的问题',en:'The museum question'},
     institution:{zh:'博物馆想知道 AI 是否可以帮忙整理这些材料。一个强版本是：AI 写出一段综合说明。一个弱版本是：AI 只帮忙排列、检索和比较不同说法，不把它们合成一个答案。你的任务是决定哪种边界更合适。',en:'The museum wants to know whether AI could help organise these materials. A strong version would let AI write one combined explanation. A weaker version would let AI arrange, search and compare the different accounts, without merging them into one answer. Your task is to decide which boundary makes sense.'},
@@ -193,6 +201,8 @@ const scenarios = {
     shortTitle:{zh:'馆藏标签审核',en:'Collection tag review'}, accent:'#84a9ff', visual:'queue',
     title:{zh:'一次 AI 馆藏标签审核试运行',en:'An AI collection-tag review pilot'},
     deck:{zh:'你需要决定：AI 可以为馆藏记录建议哪些标签？哪些标签必须人工逐件检查？如果积压或错误出现，谁负责？',en:'You need to decide which collection tags AI may suggest, which must be checked item by item, and who is responsible if errors or backlogs appear.'},
+    recap:{zh:'你是一名馆藏或数字化工作人员，面对大量纺织品图像和不完整记录。AI 只提出标签建议，不直接修改记录。重点是决定哪些标签风险较低、哪些必须逐件审核，以及审核不过来或出错时怎么办。',en:'You are a collections or digitisation officer facing many textile images and incomplete records. AI only suggests tags; it does not directly change records. The focus is deciding which tags are lower risk, which need item-by-item review, and what happens when review backlogs or errors appear.'},
+    examples:[{zh:'AI 可能建议“红色”“丝绸”“花卉图案”，这些可能适合抽查。',en:'AI may suggest “red”, “silk” or “floral motif”, which may be suitable for sampling.'},{zh:'AI 可能建议某个地区、年代、族群身份或文化含义，这类标签公开前风险更高。',en:'AI may suggest a region, date, group identity or cultural meaning; these are higher risk before publication.'},{zh:'每周只有半天审核时间，如果队列越来越长，博物馆可能需要缩小或暂停试运行。',en:'If staff have only half a day each week and the queue keeps growing, the museum may need to narrow or pause the pilot.'}],
     situation:{zh:'你在一家中型博物馆的馆藏或数字化团队工作。博物馆约有 30,000 张纺织品图像，很多记录还不完整。人工标注很慢，所以团队考虑让 AI 建议标签，例如材料、颜色、图案、年代、地区或相似藏品。但如果错误的地区、身份或文化标签被公开，可能会长期影响公众检索和理解。团队每周只有半天时间审核 AI 建议。',en:'You work in the collections or digitisation team of a medium-sized museum. It has about 30,000 textile images, many with incomplete records. Manual tagging is slow, so the team is considering AI-suggested tags, such as material, colour, motif, date, region or similar objects. But if incorrect regional, identity or cultural labels become public, they may shape public search and interpretation for years. The team has only half a day each week to review AI suggestions.'},
     institutionHeading:{zh:'博物馆正在考虑的问题',en:'The museum question'},
     institution:{zh:'AI 不会直接覆盖原记录，只会提出建议。真正的问题是：哪些建议可以快速处理，哪些必须逐件审核，审核不过来时是否应缩小或暂停试运行。',en:'AI would not overwrite the original record; it would only suggest tags. The real question is which suggestions can be handled quickly, which must be reviewed item by item, and whether the pilot should narrow or pause when staff cannot keep up.'},
@@ -217,6 +227,8 @@ const scenarios = {
     shortTitle:{zh:'访客支持方案',en:'Visitor support options'}, accent:'#f4b8dc', visual:'route',
     title:{zh:'一个小型展览的访客支持选择',en:'Visitor support choices in a small exhibition'},
     deck:{zh:'你需要在有限预算下选择优先方向：先做一个普通改进，试一个很小的 AI 服务，还是先收集更多证据？',en:'You need to choose a priority under a limited budget: make one ordinary improvement, pilot one small AI service, or gather more evidence first.'},
+    recap:{zh:'你是一名地方历史展览参观者。博物馆预算有限，只能先处理翻译、简明文字、短路线/无障碍路线中的一个方向，或先做一次很小的试验。重点是选择第一步，而不是设计一个完整大型 APP。',en:'You are a visitor to a local-history exhibition. The museum has limited budget and can first address only one area: translation, plain text, or short/access route support, or run one small pilot. The focus is choosing a first step, not designing a large all-in-one app.'},
+    examples:[{zh:'有访客看得懂展品，但希望文字更短、更像普通说明。',en:'A visitor may understand the exhibition but want shorter, plainer text.'},{zh:'有访客需要另一种语言，纸质翻译、二维码翻译或人工讲解都可能是选择。',en:'A visitor may need another language; paper translation, QR translation or staff explanation could all be options.'},{zh:'有访客只想走一条 20 分钟短路线，或需要更清楚的无障碍路线提示。',en:'A visitor may want a 20-minute short route or clearer accessible-route guidance.'}],
     situation:{zh:'你正在参观一家小型地方历史展览。参观结束时，博物馆请你帮忙选择下一步优先改善哪一项访客支持。大多数访客觉得展览基本清楚，但反馈反复提到三个问题：缺少另一种语言的翻译；有些文字太长或不够简明；缺少清楚的短路线和无障碍路线。博物馆预算有限，不能同时解决三个问题，只能先做一项小改进，或做一次很小、可停止的试验。',en:'You are visiting a small local-history exhibition. At the end, the museum asks you to help choose which visitor-support issue to improve first. Most visitors find the exhibition broadly clear, but feedback repeatedly mentions three problems: no translation into another needed language; some text is too long or not plain enough; and there is no clear short or accessible route. The museum has limited budget. It cannot solve all three at once, so it can make one small improvement or run one small pilot that can be stopped.'},
     institutionHeading:{zh:'博物馆正在征求你的意见',en:'The museum is asking for your view'},
     institution:{zh:'博物馆不是一定要用 AI。它正在比较三种方向：直接改进现有材料；提供一个有限、可选的 AI 服务；或者先弄清楚哪类访客最需要帮助，再决定是否试点。',en:'The museum does not have to use AI. It is comparing three directions: improve existing materials directly; offer one limited and optional AI service; or first learn which visitors most need support before deciding whether to pilot anything.'},
@@ -243,7 +255,7 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.7';
+const PROBE_VERSION = 'web-1.8';
 const DATA_SCHEMA_VERSION = '1.5';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
@@ -443,10 +455,19 @@ function renderVisual(s) {
   return `<div class="route-visual" aria-label="Visitor route diagram"><span class="route-node n1">START</span><span class="route-line l1"></span><span class="route-node n2">TEXT</span><span class="route-line l2"></span><span class="route-node n3">LANG</span><span class="route-line l3"></span><span class="route-node n4">ACCESS</span><b>${language==='zh'?'访客路线示意':'VISITOR ROUTE'}</b></div>`;
 }
 
+function scenarioExamples(s) {
+  return `<section class="situation-examples"><span>${t(ui.examplesTitle)}</span><ol>${s.examples.map(example=>`<li>${t(example)}</li>`).join('')}</ol></section>`;
+}
+
+function scenarioReminder(s) {
+  const role = scenarioIndex.find(item=>item.id===session.scenario).rolePrompt;
+  return `<section class="scenario-reminder" aria-label="${t(ui.contextReminder)}"><div><span>${t(ui.contextReminder)}</span><h2>${t(s.title)}</h2></div><p><b>${t(ui.reminderRole)}:</b> ${t(role)}</p><p><b>${t(ui.reminderFocus)}:</b> ${t(s.recap)}</p></section>`;
+}
+
 function renderSituation(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.situation)}`,t(s.title),t(s.deck))}
     <section class="role-banner"><span>${t(ui.roleLabel)}</span><b>${t(scenarioIndex.find(item=>item.id===session.scenario).rolePrompt)}</b></section>
-    <section class="situation-layout"><div>${renderVisual(s)}</div><div class="situation-copy"><p>${t(s.situation)}</p><aside><span>${t(s.institutionHeading)}</span><p>${t(s.institution)}</p></aside><div class="fiction-note"><b>${t(ui.fictional)}</b><span>${language==='zh'?'具体 AI 服务、界面和机构决定均为研究构造。':'The specific AI service, interface and institutional decision are research-created.'}</span></div></div></section>
+    <section class="situation-layout"><div>${renderVisual(s)}</div><div class="situation-copy"><p>${t(s.situation)}</p><aside><span>${t(s.institutionHeading)}</span><p>${t(s.institution)}</p></aside>${scenarioExamples(s)}<div class="fiction-note"><b>${t(ui.fictional)}</b><span>${language==='zh'?'具体 AI 服务、界面和机构决定均为研究构造。':'The specific AI service, interface and institutional decision are research-created.'}</span></div></div></section>
     ${bottomNav(t(ui.back),t(ui.continueInitial),'initial')}`;
 }
 
@@ -460,6 +481,7 @@ function confidenceMarkup(selected) {
 
 function renderInitial(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.initial)}`,t(s.initialQuestion),t(s.initialHelp))}
+    ${scenarioReminder(s)}
     <form class="judgement-form" id="initial-form">
       ${optionMarkup(s.initialOptions,'initialChoice',session.initialChoice)}
       ${confidenceMarkup(session.initialConfidence)}
@@ -471,6 +493,7 @@ function renderInitial(s) {
 
 function renderProposal(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.proposed)}`,t(s.proposalTitle),t(s.proposalNote))}
+    ${scenarioReminder(s)}
     <div class="reveal-banner"><b>${language==='zh'?'你的第一次选择已经保存。':'Your first choice has been saved.'}</b><span>${language==='zh'?'下面才会显示研究构造的近未来提案。它不是已经投入使用的系统。':'The research-created near-future proposal is shown below. It is not an implemented system.'}</span></div>
     <div class="proposal-instruction"><span>1</span><div><p>${t(ui.proposalInstruction)}</p><small class="question-help">${t(ui.proposalInstructionHelp)}</small></div></div>
     <section class="proposal-grid">${s.proposalCards.map((card,index)=>{
@@ -485,6 +508,7 @@ function actionLabel(action) { return action ? t(ui[action]) : t(ui.unmarked); }
 
 function renderReshape(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.reshape)}`,language==='zh'?'把提案改成你能够接受的版本':'Change the proposal into a version you could accept',language==='zh'?'请根据刚才的标记修改提案。你可以调整谁来决定、AI 可以做什么，以及什么时候需要停止。':'Use your marks and notes to make the proposal workable for you. You can change who decides, what AI may do and when it needs to stop.')}
+    ${scenarioReminder(s)}
     <section class="reshape-list">${s.proposalCards.map((card,index)=>{const mark=session.proposalMarks[index];return `<article><div class="reshape-title"><span class="status-chip ${mark.action}">${actionLabel(mark.action)}</span><h2>${t(card.title)}</h2></div><p>${t(card.body)}</p><label class="text-field compact"><span>${t(ui.changeThis)}</span><small class="question-help">${t(ui.changeThisHelp)}</small><textarea rows="3" data-note-index="${index}">${escapeText(mark.note)}</textarea></label></article>`}).join('')}</section>
     <section class="boundary-fields">
       <label class="text-field"><span>+ ${t(ui.addMissing)}</span><small class="question-help">${t(ui.addMissingHelp)}</small><textarea rows="4" data-session-field="addedContent">${escapeText(session.addedContent)}</textarea></label>
@@ -497,6 +521,7 @@ function renderReshape(s) {
 function renderFinal(s) {
   const comparisons=[ui.changed,ui.clearer,ui.unchanged];
   return `${phaseHeading(`${session.scenario} · ${t(ui.final)}`,t(s.revisedQuestion),t(s.revisedHelp))}
+    ${scenarioReminder(s)}
     <form class="judgement-form" id="final-form">
       ${optionMarkup(s.revisedOptions,'revisedChoice',session.revisedChoice)}
       <fieldset class="comparison"><legend>${t(ui.comparison)}</legend><p class="question-help">${t(ui.comparisonHelp)}</p>${comparisons.map((item,index)=>`<label><input type="radio" name="comparison" value="${index}" ${String(index)===String(session.comparison)?'checked':''}><span>${t(item)}</span></label>`).join('')}</fieldset>
@@ -515,6 +540,7 @@ function renderReflection(s) {
     ['04',ui.nonAIQuestion,ui.nonAIHelp,'nonAIAlternative',session.nonAIAlternative]
   ];
   return `${phaseHeading(`${session.scenario} · ${t(ui.reflection)}`,t(ui.reflectionTitle),t(ui.reflectionDeck))}
+    ${scenarioReminder(s)}
     <form class="reflection-form" id="reflection-form">
       ${questions.map(([number,question,help,name,value]) => `<label class="text-field reflection-question"><span><i>${number}</i>${t(question)} <b>*</b></span><small class="question-help">${t(help)}</small><textarea name="${name}" rows="4">${escapeText(value)}</textarea></label>`).join('')}
     </form>

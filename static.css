@@ -168,6 +168,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .situation-copy aside { background:var(--scenario-accent); margin-top:28px; padding:20px; }
 .situation-copy aside span { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
 .situation-copy aside p { font-size:14px; line-height:1.65; margin:14px 0 0; }
+.situation-examples { background:#fff; border-left:8px solid var(--scenario-accent); margin-top:18px; padding:18px 20px; }
+.situation-examples>span { color:#666; display:block; font-size:11px; font-weight:700; letter-spacing:.08em; margin-bottom:12px; text-transform:uppercase; }
+.situation-examples ol { display:grid; gap:10px; margin:0; padding-left:22px; }
+.situation-examples li { color:#343434; font-size:14px; line-height:1.6; padding-left:4px; }
 .fiction-note { border-top:1px solid #777; display:flex; font-size:10px; gap:18px; line-height:1.5; margin-top:22px; padding-top:12px; }
 .fiction-note b { flex:none; text-transform:uppercase; }
 .situation-object { background:#fff; }
@@ -193,6 +197,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .l1{left:21%;top:22%;transform:rotate(4deg)}.l2{left:33%;top:51%;transform:rotate(125deg)}.l3{left:37%;top:64%;transform:rotate(13deg);width:190px}
 
 .judgement-form { display:flex; flex-direction:column; gap:32px; }
+.scenario-reminder { background:#fff; border-left:9px solid var(--scenario-accent); display:grid; gap:10px 24px; grid-template-columns:minmax(190px,.45fr) 1fr; margin:-8px 0 24px; padding:17px 20px; }
+.scenario-reminder span { color:#666; display:block; font-size:10px; font-weight:700; letter-spacing:.1em; margin-bottom:7px; text-transform:uppercase; }
+.scenario-reminder h2 { font-size:clamp(20px,2.1vw,30px); letter-spacing:-.025em; line-height:1.12; margin:0; }
+.scenario-reminder p { color:#444; font-size:13px; line-height:1.6; margin:0; }
+.scenario-reminder b { color:var(--ink); }
 .choice-list { display:grid; gap:10px; grid-template-columns:repeat(2,1fr); }
 .choice-list label { align-items:flex-start; background:#fff; border:2px solid transparent; cursor:pointer; display:flex; gap:15px; min-height:108px; padding:19px; position:relative; }
 .choice-list label:hover { border-color:#999; }
@@ -345,6 +354,7 @@ html[lang="en"] .text-field>span { line-height:1.5; }
   .phase-kicker { grid-row:auto; }
   .phase-heading h1,.phase-deck { grid-column:1; }
   .situation-layout { grid-template-columns:1fr; }
+  .scenario-reminder { grid-template-columns:1fr; }
   .role-banner { align-items:flex-start; flex-direction:column; gap:8px; }
   .role-banner b { text-align:left; }
   .ai-primer { grid-template-columns:1fr; }
