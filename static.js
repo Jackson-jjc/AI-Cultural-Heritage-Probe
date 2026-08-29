@@ -45,6 +45,9 @@ const ui = {
   pageTask:{zh:'本页任务',en:'Your task on this page'}, help:{zh:'需要帮助？',en:'Need help?'},
   roleLabel:{zh:'你在这个情景中的身份',en:'Your role in this situation'},
   examplesTitle:{zh:'帮助你理解这个情景的例子',en:'Examples to help you picture the situation'},
+  referenceObjectsTitle:{zh:'真实馆藏参考例子',en:'Real collection examples'},
+  referenceObjectsNote:{zh:'这些开放馆藏只用于帮助理解情景，并不是本研究要你评价的具体藏品。',en:'These open collection examples only help you picture the situation; they are not the specific object you are being asked to judge.'},
+  referenceSource:{zh:'来源',en:'Source'},
   contextReminder:{zh:'情景提醒',en:'Situation reminder'},
   reminderRole:{zh:'你的身份',en:'Your role'},
   reminderFocus:{zh:'请记住',en:'Keep in mind'},
@@ -177,6 +180,10 @@ const scenarios = {
     deck:{zh:'你需要决定：当馆藏记录、专家研究、社区说法和个人记忆不一致时，AI 只能整理材料，还是也可以改写和综合？',en:'You need to decide what AI may do when a collection record, specialist research, community wording and personal memory do not fully agree.'},
     recap:{zh:'你是一名与社区合作的策展人员，正在审核一件仪式用品的数字展示页。不同材料对名称、用途和流转经历说法不完全一致，有些内容也可能需要社区许可。重点是决定 AI 只能整理材料，还是可以改写、翻译或综合。',en:'You are a curator working with communities, reviewing a digital display page for a ceremonial object. Different materials disagree about its name, use and transfer history, and some content may need community permission. The focus is deciding whether AI may only organise material, or may also rewrite, translate or combine it.'},
     examples:[{zh:'旧馆藏记录可能使用一个殖民时期名称，但相关社区现在使用另一个名称。',en:'The old collection record may use a colonial-era name, while the related community now uses another name.'},{zh:'专家研究可能提出一种用途解释，但社区成员认为某些宗教或仪式知识不适合公开。',en:'Specialist research may suggest one use, while community members say some religious or ceremonial knowledge should not be public.'},{zh:'一位讲述者可能提供个人记忆，但这段记忆不能代表所有社区成员，也可能不希望被 AI 改写。',en:'One contributor may share a personal memory, but it does not represent everyone in the community and may not be suitable for AI rewriting.'}],
+    referenceObjects:[
+      {title:{zh:'Bulul（男性稻米神像）',en:'Bulul (male rice deity figure)'},meta:{zh:'Ifugao people，菲律宾，19 世纪或更早',en:'Ifugao people, Philippines, 19th century or earlier'},image:'https://images.metmuseum.org/CRDImages/ao/web-large/DP320246.jpg',url:'https://www.metmuseum.org/art/collection/search/626371',source:'The Metropolitan Museum of Art, Public Domain',note:{zh:'这个例子帮助说明：仪式用品常与生活、祖灵、农业和地方知识相关，AI 不能只把它当成普通物品说明来改写。',en:'This example shows that ceremonial objects can connect everyday life, ancestors, agriculture and local knowledge, so AI should not treat them as ordinary object descriptions.'}},
+      {title:{zh:'Serpent (tunjo)',en:'Serpent (tunjo)'},meta:{zh:'Muisca，10–16 世纪',en:'Muisca, 10th–16th century'},image:'https://images.metmuseum.org/CRDImages/ao/web-large/DP-32945-001.jpg',url:'https://www.metmuseum.org/art/collection/search/316724',source:'The Metropolitan Museum of Art, Public Domain',note:{zh:'这个例子帮助说明：有些物件与供奉、神话和殖民时期叙事有关，不同来源可能会强调不同解释。',en:'This example shows how an object may be linked to offerings, myth and colonial-era narratives, with different sources emphasising different interpretations.'}}
+    ],
     situation:{zh:'你正在帮助一家博物馆审核一件仪式用品的数字展示页。关于这件藏品，不同材料说法不完全一致：馆藏记录有一个名称和流转记录；专家研究提出另一种解释；相关社区成员可能使用不同名称；一位讲述者还提供了个人记忆。有些知识可能不能公开，也不一定可以交给机器改写。博物馆正在确认展示许可，所以这里暂不显示图片。',en:'You are helping a museum review a digital page for a ceremonial object. Different materials do not fully agree: the collection record gives one name and transfer history; specialist research offers another interpretation; related community members may use different names; and one contributor has shared a personal memory. Some knowledge may not be public, and may not be suitable for machine rewriting. The museum is still checking display permission, so the image is not shown here.'},
     institutionHeading:{zh:'博物馆正在考虑的问题',en:'The museum question'},
     institution:{zh:'博物馆想知道 AI 是否可以帮忙整理这些材料。一个强版本是：AI 写出一段综合说明。一个弱版本是：AI 只帮忙排列、检索和比较不同说法，不把它们合成一个答案。你的任务是决定哪种边界更合适。',en:'The museum wants to know whether AI could help organise these materials. A strong version would let AI write one combined explanation. A weaker version would let AI arrange, search and compare the different accounts, without merging them into one answer. Your task is to decide which boundary makes sense.'},
@@ -255,7 +262,7 @@ const phases = ['briefing','situation','initial','proposal','reshape','final','r
 const taskPhases = phases.slice(0,-1);
 const actions = ['keep','concern','remove','question'];
 const STUDY_ID = 'ERGO-II-114350';
-const PROBE_VERSION = 'web-1.8';
+const PROBE_VERSION = 'web-1.9';
 const DATA_SCHEMA_VERSION = '1.5';
 const POWER_AUTOMATE_URL = String(window.PROBE_CONFIG?.powerAutomateUrl || '').trim();
 let language = localStorage.getItem('probe-language') || 'en';
@@ -459,6 +466,11 @@ function scenarioExamples(s) {
   return `<section class="situation-examples"><span>${t(ui.examplesTitle)}</span><ol>${s.examples.map(example=>`<li>${t(example)}</li>`).join('')}</ol></section>`;
 }
 
+function referenceObjects(s) {
+  if (!s.referenceObjects?.length) return '';
+  return `<section class="reference-objects"><div class="reference-heading"><span>${t(ui.referenceObjectsTitle)}</span><p>${t(ui.referenceObjectsNote)}</p></div><div class="reference-grid">${s.referenceObjects.map(object=>`<article><img src="${object.image}" alt="${t(object.title)}"><div><h3>${t(object.title)}</h3><p class="reference-meta">${t(object.meta)}</p><p>${t(object.note)}</p><a href="${object.url}" target="_blank" rel="noreferrer">${t(ui.referenceSource)}: ${object.source}</a></div></article>`).join('')}</div></section>`;
+}
+
 function scenarioReminder(s) {
   const role = scenarioIndex.find(item=>item.id===session.scenario).rolePrompt;
   return `<section class="scenario-reminder" aria-label="${t(ui.contextReminder)}"><div><span>${t(ui.contextReminder)}</span><h2>${t(s.title)}</h2></div><p><b>${t(ui.reminderRole)}:</b> ${t(role)}</p><p><b>${t(ui.reminderFocus)}:</b> ${t(s.recap)}</p></section>`;
@@ -468,6 +480,7 @@ function renderSituation(s) {
   return `${phaseHeading(`${session.scenario} · ${t(ui.situation)}`,t(s.title),t(s.deck))}
     <section class="role-banner"><span>${t(ui.roleLabel)}</span><b>${t(scenarioIndex.find(item=>item.id===session.scenario).rolePrompt)}</b></section>
     <section class="situation-layout"><div>${renderVisual(s)}</div><div class="situation-copy"><p>${t(s.situation)}</p><aside><span>${t(s.institutionHeading)}</span><p>${t(s.institution)}</p></aside>${scenarioExamples(s)}<div class="fiction-note"><b>${t(ui.fictional)}</b><span>${language==='zh'?'具体 AI 服务、界面和机构决定均为研究构造。':'The specific AI service, interface and institutional decision are research-created.'}</span></div></div></section>
+    ${referenceObjects(s)}
     ${bottomNav(t(ui.back),t(ui.continueInitial),'initial')}`;
 }
 

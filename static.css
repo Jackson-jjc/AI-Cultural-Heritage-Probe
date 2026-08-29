@@ -172,6 +172,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .situation-examples>span { color:#666; display:block; font-size:11px; font-weight:700; letter-spacing:.08em; margin-bottom:12px; text-transform:uppercase; }
 .situation-examples ol { display:grid; gap:10px; margin:0; padding-left:22px; }
 .situation-examples li { color:#343434; font-size:14px; line-height:1.6; padding-left:4px; }
+.reference-objects { background:#fff; border-top:8px solid var(--scenario-accent); margin:22px 0 28px; padding:22px; }
+.reference-heading { align-items:start; display:grid; gap:18px; grid-template-columns:minmax(180px,.45fr) 1fr; margin-bottom:18px; }
+.reference-heading span { color:#666; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.reference-heading p { color:#555; font-size:13px; line-height:1.6; margin:0; }
+.reference-grid { display:grid; gap:14px; grid-template-columns:repeat(2,1fr); }
+.reference-grid article { border:1px solid #d0d0d0; display:grid; grid-template-columns:150px 1fr; min-height:210px; }
+.reference-grid img { background:#f2f2f2; height:100%; min-height:210px; object-fit:cover; width:100%; }
+.reference-grid article>div { display:flex; flex-direction:column; padding:16px; }
+.reference-grid h3 { font-size:clamp(20px,2vw,28px); letter-spacing:-.03em; line-height:1.08; margin:0 0 8px; }
+.reference-grid p { color:#444; font-size:13px; line-height:1.58; margin:0 0 10px; }
+.reference-grid .reference-meta { color:#666; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+.reference-grid a { color:var(--ink); font-size:11px; font-weight:700; margin-top:auto; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
 .fiction-note { border-top:1px solid #777; display:flex; font-size:10px; gap:18px; line-height:1.5; margin-top:22px; padding-top:12px; }
 .fiction-note b { flex:none; text-transform:uppercase; }
 .situation-object { background:#fff; }
@@ -354,6 +366,8 @@ html[lang="en"] .text-field>span { line-height:1.5; }
   .phase-kicker { grid-row:auto; }
   .phase-heading h1,.phase-deck { grid-column:1; }
   .situation-layout { grid-template-columns:1fr; }
+  .reference-heading,.reference-grid { grid-template-columns:1fr; }
+  .reference-grid article { grid-template-columns:130px 1fr; }
   .scenario-reminder { grid-template-columns:1fr; }
   .role-banner { align-items:flex-start; flex-direction:column; gap:8px; }
   .role-banner b { text-align:left; }
@@ -386,6 +400,9 @@ html[lang="en"] .text-field>span { line-height:1.5; }
   .probe-main { padding:38px 16px 56px; }
   .phase-heading { margin-bottom:30px; }
   .phase-heading h1 { font-size:35px; }
+  .reference-objects { padding:18px; }
+  .reference-grid article { grid-template-columns:1fr; }
+  .reference-grid img { max-height:260px; }
   .choice-list,.proposal-grid,.reshape-list,.boundary-fields,.comparison,.reflection-form { grid-template-columns:1fr; }
   .boundary-fields .task-field { grid-column:1; }
   .choice-list label { min-height:92px; }
